@@ -5,6 +5,6 @@ public class Main {
 
         Escola bucao = new Escola();
 
-        //impl
+        System.out.println("Ola mundo");
     }
 }
