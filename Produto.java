@@ -1,3 +1,5 @@
+package projeto;
+
 public class Produto {
     private String nomeProduto,tipo;
     private float valor;
@@ -6,7 +8,7 @@ public class Produto {
 
     public Produto(){}
 
-
+    //impl
     public Produto (String nomeProduto,String tipo,float valor,short qtd){
         this.nomeProduto=nomeProduto;
         this.qtd=qtd;

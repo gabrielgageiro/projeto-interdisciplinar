@@ -1,3 +1,5 @@
+package projeto;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Locale;
@@ -10,7 +12,7 @@ public class Escola {
     private ArrayList<Produto> produtos = new ArrayList<Produto>();
     public Escola() {
     }
-
+    //impl
     public void cadastrarMateriais() throws InputMismatchException {
 
         try {
@@ -46,17 +48,18 @@ public class Escola {
             System.out.println("pedagogico: "+produtos.get(i).getGp());
         }Este modo assim não atribui os proximos valores, se souber como fazer e preferir este modo ao de baixo.... se preferir o debaixo mais simples porem funcionando
         não esquecer de tirar as variaveis gd, ge, gp de Produto(Se fizer do modo de cima nao precisa de parametro porem a debaixo precisa)*/
-            if (tipo.equals("Didatico") || tipo.equals("didatico")){
-                gastosDidatico += valor * qtd;
-            }else if (tipo.equals("Escritorio") || tipo.equals("escritorio")){
-                gastosEscritorio += valor * qtd;
-            }else if (tipo.equals("Pedagogico") || tipo.equals("pedagogico") || tipo.equals("Pedagógico")){
-                gastosPedagogico += valor * qtd;
-            }
-            System.out.println("didatico: "+gastosDidatico);
-            System.out.println("escritorio: "+gastosEscritorio);
-            System.out.println("pedagogico: "+gastosPedagogico);
+        if (tipo.equals("Didatico") || tipo.equals("didatico")){
+            gastosDidatico += valor * qtd;
+        }else if (tipo.equals("Escritorio") || tipo.equals("escritorio")){
+            gastosEscritorio += valor * qtd;
+        }else if (tipo.equals("Pedagogico") || tipo.equals("pedagogico") || tipo.equals("Pedagógico")){
+            gastosPedagogico += valor * qtd;
+        }
+        System.out.println("didatico: "+gastosDidatico);
+        System.out.println("escritorio: "+gastosEscritorio);
+        System.out.println("pedagogico: "+gastosPedagogico);
     }
+
     public void debitarGasto(float valor, String produto, String tipo) {
         for (int i = 0; i < produtos.size(); i++) {
             if (produtos.get(i).getNomeProduto().contains(produto)) {
@@ -86,6 +89,6 @@ public class Escola {
     }
 
     public void removerProduto(Produto p){
-            produtos.remove(p);
-        }
+        produtos.remove(p);
+    }
 }

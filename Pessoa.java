@@ -1,3 +1,5 @@
+package projeto;
+
 public class Pessoa {
     private String nome,ocupacao;
     private int idade;
@@ -8,7 +10,7 @@ public class Pessoa {
         this.codigo = codigo;
         this.ocupacao = ocupacao;
     }
-
+    //impl
     public String getNome() {return nome;}
 
     public void setNome(String nome) {this.nome = nome;}
