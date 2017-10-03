@@ -10,6 +10,8 @@ public class Escola {
     private float verba = 0, gastosDidatico, gastosEscritorio, gastosPedagogico;
     private String nomeDaEscola;
     private ArrayList<Produto> produtos = new ArrayList<Produto>();
+    private ArrayList<Pessoa> alunos = new ArrayList<Pessoa>();
+    private ArrayList<Pessoa> professores = new ArrayList<Pessoa>();
     public Escola() {
     }
     //impl
@@ -33,6 +35,42 @@ public class Escola {
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
     }
+    public void cadastrarAluno() throws  InputMismatchException{
+        try{
+            Scanner l = new Scanner(System.in);
+            l.useLocale(Locale.ENGLISH);
+            System.out.print("Nome do Aluno: ");
+            String nome = l.nextLine();
+            System.out.print("Ocupação do Aluno: ");
+            String ocupacao = l.nextLine();
+            System.out.print("Idade do Aluno: ");
+            int idade = l.nextShort();
+            System.out.print("Código do Aluno: ");
+            long codigo = l.nextShort();
+            alunos.add(new Pessoa(nome,idade,codigo, ocupacao));
+            qtdAluno++;
+        }catch(InputMismatchException e){
+            System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
+        }
+    }
+    public void cadastrarProfessor() throws InputMismatchException{
+        try{
+            Scanner l = new Scanner(System.in);
+            l.useLocale(Locale.ENGLISH);
+            System.out.print("Nome do Professor: ");
+            String nome = l.nextLine();
+            System.out.print("Ocupação do Professor(Disciplina onde o professor atua): ");
+            String ocupacao = l.nextLine();
+            System.out.print("Idade do Professor: ");
+            int idade = l.nextShort();
+            System.out.print("Código do Professor: ");
+            long codigo = l.nextShort();
+            professores.add(new Pessoa(nome, idade,codigo,ocupacao));
+            qtdProfessor++;
+        }catch(InputMismatchException e){
+            System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
+        }
+    
 
     public void calcularGastos(String tipo, int qtd, float valor){
         /*for (int i = 0; i < produtos.size(); i++) {
@@ -59,6 +97,8 @@ public class Escola {
         System.out.println("escritorio: "+gastosEscritorio);
         System.out.println("pedagogico: "+gastosPedagogico);
     }
+    
+    public float calculaCustoMedioAluno(){ return gastosDidatico / qtdAluno;}
 
     public void debitarGasto(float valor, String produto, String tipo) {
         for (int i = 0; i < produtos.size(); i++) {
@@ -85,6 +125,18 @@ public class Escola {
         System.out.println("TODOS OS MATERIAIS ABAIXO:");
         for (Produto pro : produtos) {
             System.out.println(pro.getNomeProduto() + " " + pro.getQtd() + " " + pro.getValor());
+        }
+    }
+    public void mostrarAlunos(){
+        System.out.println("TODOS OS ALUNOS ABAIXO:");
+        for (Pessoa alu : alunos){
+            System.out.println(alu.getNome() + " " + alu.getCodigo() + " " + alu.getIdade());
+        }
+    }
+    public void mostrarProfessores(){
+        System.out.println("TODOS OS PROFESSORES ABAIXO:");
+        for (Pessoa prof : professores){
+            System.out.println(prof.getNome() + " " + prof.getCodigo() + " " + prof.getIdade());
         }
     }
 
