@@ -35,6 +35,7 @@ public class Escola {
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
     }
+
     public void cadastrarAluno() throws  InputMismatchException{
         try{
             Scanner l = new Scanner(System.in);
@@ -53,8 +54,8 @@ public class Escola {
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
     }
-    public void cadastrarProfessor() throws InputMismatchException{
-        try{
+    public void cadastrarProfessor() throws InputMismatchException {
+        try {
             Scanner l = new Scanner(System.in);
             l.useLocale(Locale.ENGLISH);
             System.out.print("Nome do Professor: ");
@@ -65,14 +66,15 @@ public class Escola {
             int idade = l.nextShort();
             System.out.print("Código do Professor: ");
             long codigo = l.nextShort();
-            professores.add(new Pessoa(nome, idade,codigo,ocupacao));
+            professores.add(new Pessoa(nome, idade, codigo, ocupacao));
             qtdProfessor++;
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
-    
+    }
 
-    public void calcularGastos(String tipo, int qtd, float valor){
+
+    public void calcularGastos(String tipo, int qtd, float valor) {
         /*for (int i = 0; i < produtos.size(); i++) {
             if (produtos.get(i).getTipo().equals("Didatico") || produtos.get(i).getTipo().equals("didatico")) {
                 produtos.get(i).setGd((produtos.get(i).getValor() * produtos.get(i).getQtd()));
@@ -86,19 +88,21 @@ public class Escola {
             System.out.println("pedagogico: "+produtos.get(i).getGp());
         }Este modo assim não atribui os proximos valores, se souber como fazer e preferir este modo ao de baixo.... se preferir o debaixo mais simples porem funcionando
         não esquecer de tirar as variaveis gd, ge, gp de Produto(Se fizer do modo de cima nao precisa de parametro porem a debaixo precisa)*/
-        if (tipo.equals("Didatico") || tipo.equals("didatico")){
+        if (tipo.equals("Didatico") || tipo.equals("didatico")) {
             gastosDidatico += valor * qtd;
-        }else if (tipo.equals("Escritorio") || tipo.equals("escritorio")){
+        } else if (tipo.equals("Escritorio") || tipo.equals("escritorio")) {
             gastosEscritorio += valor * qtd;
-        }else if (tipo.equals("Pedagogico") || tipo.equals("pedagogico") || tipo.equals("Pedagógico")){
+        } else if (tipo.equals("Pedagogico") || tipo.equals("pedagogico") || tipo.equals("Pedagógico")) {
             gastosPedagogico += valor * qtd;
         }
-        System.out.println("didatico: "+gastosDidatico);
-        System.out.println("escritorio: "+gastosEscritorio);
-        System.out.println("pedagogico: "+gastosPedagogico);
+        System.out.println("didatico: " + gastosDidatico);
+        System.out.println("escritorio: " + gastosEscritorio);
+        System.out.println("pedagogico: " + gastosPedagogico);
     }
-    
-    public float calculaCustoMedioAluno(){ return gastosDidatico / qtdAluno;}
+
+    public float calculaCustoMedioAluno() {
+        return gastosDidatico / qtdAluno;
+    }
 
     public void debitarGasto(float valor, String produto, String tipo) {
         for (int i = 0; i < produtos.size(); i++) {
@@ -127,20 +131,23 @@ public class Escola {
             System.out.println(pro.getNomeProduto() + " " + pro.getQtd() + " " + pro.getValor());
         }
     }
-    public void mostrarAlunos(){
+
+    public void mostrarAlunos() {
         System.out.println("TODOS OS ALUNOS ABAIXO:");
-        for (Pessoa alu : alunos){
+        for (Pessoa alu : alunos) {
             System.out.println(alu.getNome() + " " + alu.getCodigo() + " " + alu.getIdade());
         }
     }
-    public void mostrarProfessores(){
+
+    public void mostrarProfessores() {
         System.out.println("TODOS OS PROFESSORES ABAIXO:");
-        for (Pessoa prof : professores){
+        for (Pessoa prof : professores) {
             System.out.println(prof.getNome() + " " + prof.getCodigo() + " " + prof.getIdade());
         }
     }
 
-    public void removerProduto(Produto p){
+    public void removerProduto(Produto p) {
         produtos.remove(p);
     }
+
 }
