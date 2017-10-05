@@ -1,4 +1,4 @@
-package projeto.escola;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -9,101 +9,65 @@ public class Escola {
     private int qtdAluno, qtdProfessor;
     private float verba = 0, gastosDidatico, gastosEscritorio, gastosPedagogico;
     private String nomeDaEscola;
+    Pessoa p = new Pessoa();
+    Produto pro = new Produto();
     private ArrayList<Produto> produtos = new ArrayList<Produto>();
-    private ArrayList<Pessoa> alunos = new ArrayList<Pessoa>();
-    private ArrayList<Pessoa> professores = new ArrayList<Pessoa>();
+    private ArrayList<Pessoa> integrantes = new ArrayList<Pessoa>();
+
     public Escola() {
     }
-    //impl
+    public float calculaCustoMedioAluno(){
+        return gastosDidatico / qtdAluno;
+    }
     public void cadastrarMateriais() throws InputMismatchException {
-
         try {
             Scanner l = new Scanner(System.in);
             l.useLocale(Locale.ENGLISH);
             System.out.print("Nome do item: ");
-            String nome = l.nextLine();
+            pro.setNomeProduto(l.nextLine());
             System.out.print("Tipo (Escritorio, Didatico, etc)):");
-            String tipo = l.nextLine();
+            pro.setTipo(l.nextLine());
             System.out.print("Quantidade adquirida: ");
-            short qt = l.nextShort();
+            pro.setQtd(l.nextShort());
             System.out.print("Valor unitario (Ex.: 15.75): ");
-            float vlr = l.nextFloat();
-            produtos.add(new Produto(nome, tipo, vlr, qt));
-            calcularGastos(tipo,qt,vlr);
+            pro.setValor(l.nextFloat());
+            produtos.add(pro);
+            calcularGastos();
 
         } catch (InputMismatchException e) {
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
     }
-
-    public void cadastrarAluno() throws  InputMismatchException{
+    public void cadastrarIntegrantesEscola() throws  InputMismatchException{
         try{
             Scanner l = new Scanner(System.in);
             l.useLocale(Locale.ENGLISH);
-            System.out.print("Nome do Aluno: ");
-            String nome = l.nextLine();
-            System.out.print("Ocupação do Aluno: ");
-            String ocupacao = l.nextLine();
-            System.out.print("Idade do Aluno: ");
-            int idade = l.nextShort();
-            System.out.print("Código do Aluno: ");
-            long codigo = l.nextShort();
-            alunos.add(new Pessoa(nome,idade,codigo, ocupacao));
-            qtdAluno++;
+            System.out.print("Nome: ");
+            p.setNome(l.nextLine());
+            System.out.print("Ocupação do integrante(Aluno, Professor, Secretário, Diretor): ");
+            p.setOcupacao(l.nextLine());
+            System.out.print("Idade: ");
+            p.setIdade(l.nextShort());
+            System.out.print("Código: ");
+            p.setCodigo(l.nextShort());
+            integrantes.add(p);
+            if (p.getOcupacao().equals("aluno")) {
+                qtdAluno++;
+            }
         }catch(InputMismatchException e){
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
     }
-    public void cadastrarProfessor() throws InputMismatchException {
-        try {
-            Scanner l = new Scanner(System.in);
-            l.useLocale(Locale.ENGLISH);
-            System.out.print("Nome do Professor: ");
-            String nome = l.nextLine();
-            System.out.print("Ocupação do Professor(Disciplina onde o professor atua): ");
-            String ocupacao = l.nextLine();
-            System.out.print("Idade do Professor: ");
-            int idade = l.nextShort();
-            System.out.print("Código do Professor: ");
-            long codigo = l.nextShort();
-            professores.add(new Pessoa(nome, idade, codigo, ocupacao));
-            qtdProfessor++;
-        } catch (InputMismatchException e) {
-            System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
-        }
-    }
 
-
-    public void calcularGastos(String tipo, int qtd, float valor) {
-        /*for (int i = 0; i < produtos.size(); i++) {
-            if (produtos.get(i).getTipo().equals("Didatico") || produtos.get(i).getTipo().equals("didatico")) {
-                produtos.get(i).setGd((produtos.get(i).getValor() * produtos.get(i).getQtd()));
-            }else if (produtos.get(i).getTipo().equals("Escritorio") || produtos.get(i).getTipo().equals("escritorio")){
-                produtos.get(i).setGe((produtos.get(i).getValor() * produtos.get(i).getQtd()));
-            }else if (produtos.get(i).getTipo().equals("Pedagogico") || produtos.get(i).getTipo().equals("pedagogico")){
-                produtos.get(i).setGp((produtos.get(i).getValor() * produtos.get(i).getQtd()));
+    public void calcularGastos(){
+            if (pro.getTipo().equals("Didatico") || pro.getTipo().equals("didatico")){
+                gastosDidatico += pro.getValor() * pro.getQtd();
+            }else if (pro.getTipo().equals("Escritorio") || pro.getTipo().equals("escritorio")){
+                gastosEscritorio += pro.getValor() * pro.getQtd();
+            }else if (pro.getTipo().equals("Pedagogico") || pro.getTipo().equals("pedagogico") || pro.getTipo().equals("Pedagógico")){
+                gastosPedagogico += pro.getValor() * pro.getQtd();
             }
-            System.out.println("didatico: "+produtos.get(i).getGd());
-            System.out.println("escritorio: "+produtos.get(i).getGe());
-            System.out.println("pedagogico: "+produtos.get(i).getGp());
-        }Este modo assim não atribui os proximos valores, se souber como fazer e preferir este modo ao de baixo.... se preferir o debaixo mais simples porem funcionando
-        não esquecer de tirar as variaveis gd, ge, gp de Produto(Se fizer do modo de cima nao precisa de parametro porem a debaixo precisa)*/
-        if (tipo.equals("Didatico") || tipo.equals("didatico")) {
-            gastosDidatico += valor * qtd;
-        } else if (tipo.equals("Escritorio") || tipo.equals("escritorio")) {
-            gastosEscritorio += valor * qtd;
-        } else if (tipo.equals("Pedagogico") || tipo.equals("pedagogico") || tipo.equals("Pedagógico")) {
-            gastosPedagogico += valor * qtd;
-        }
-        System.out.println("didatico: " + gastosDidatico);
-        System.out.println("escritorio: " + gastosEscritorio);
-        System.out.println("pedagogico: " + gastosPedagogico);
     }
-
-    public float calculaCustoMedioAluno() {
-        return gastosDidatico / qtdAluno;
-    }
-
     public void debitarGasto(float valor, String produto, String tipo) {
         for (int i = 0; i < produtos.size(); i++) {
             if (produtos.get(i).getNomeProduto().contains(produto)) {
@@ -131,23 +95,13 @@ public class Escola {
             System.out.println(pro.getNomeProduto() + " " + pro.getQtd() + " " + pro.getValor());
         }
     }
-
-    public void mostrarAlunos() {
-        System.out.println("TODOS OS ALUNOS ABAIXO:");
-        for (Pessoa alu : alunos) {
-            System.out.println(alu.getNome() + " " + alu.getCodigo() + " " + alu.getIdade());
-        }
-    }
-
-    public void mostrarProfessores() {
+    public void mostrarIntegrantesEscola(){
         System.out.println("TODOS OS PROFESSORES ABAIXO:");
-        for (Pessoa prof : professores) {
-            System.out.println(prof.getNome() + " " + prof.getCodigo() + " " + prof.getIdade());
+        for (Pessoa integra : integrantes){
+            System.out.println(integra.getNome() + " " + integra.getCodigo() + " " + integra.getIdade());
         }
     }
-
-    public void removerProduto(Produto p) {
+    public void removerProduto(Produto p){
         produtos.remove(p);
-    }
-
+        }
 }
