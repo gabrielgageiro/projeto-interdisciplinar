@@ -1,4 +1,3 @@
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -33,7 +32,6 @@ public class Escola {
             pro.setValor(l.nextFloat());
             produtos.add(pro);
             calcularGastos();
-
         } catch (InputMismatchException e) {
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
@@ -51,20 +49,21 @@ public class Escola {
             System.out.print("Código: ");
             p.setCodigo(l.nextShort());
             integrantes.add(p);
-            if (p.getOcupacao().equals("aluno")) {
+            if (p.getOcupacao().equals("Aluno") || p.getOcupacao().equals("aluno")) {
                 qtdAluno++;
+            }else if (p.getOcupacao().equals("Professor") || p.getOcupacao().equals("professor")){
+                qtdProfessor++;
             }
         }catch(InputMismatchException e){
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
     }
-
     public void calcularGastos(){
-            if (pro.getTipo().equals("Didatico") || pro.getTipo().equals("didatico")){
+            if (pro.getTipo().equals("Didatico") || pro.getTipo().equals("didatico") ){
                 gastosDidatico += pro.getValor() * pro.getQtd();
             }else if (pro.getTipo().equals("Escritorio") || pro.getTipo().equals("escritorio")){
                 gastosEscritorio += pro.getValor() * pro.getQtd();
-            }else if (pro.getTipo().equals("Pedagogico") || pro.getTipo().equals("pedagogico") || pro.getTipo().equals("Pedagógico")){
+            }else if (pro.getTipo().equals("Pedagogico") || pro.getTipo().equals("pedagogico") || pro.getTipo().equals("Pedagógico")) {
                 gastosPedagogico += pro.getValor() * pro.getQtd();
             }
     }
