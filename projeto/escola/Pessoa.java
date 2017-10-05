@@ -1,4 +1,4 @@
-package projeto;
+package projeto.escola;
 
 public class Pessoa {
     private String nome,ocupacao;

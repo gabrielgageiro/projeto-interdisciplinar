@@ -1,4 +1,4 @@
-package projeto;
+package projeto.escola;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

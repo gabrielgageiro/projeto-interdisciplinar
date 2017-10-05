@@ -1,4 +1,4 @@
-package projeto;
+package projeto.bancoDeDados;
 
 import java.sql.*;
 import java.lang.*;
