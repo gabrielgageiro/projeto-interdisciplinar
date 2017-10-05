@@ -1,4 +1,5 @@
 package projeto;
+import java.sql.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,5 +7,7 @@ public class Main {
         Escola bucao = new Escola();
 
         System.out.println("Ola mundo");
+        BancoDeDados bd = new BancoDeDados();
+        bd.connect();
     }
 }
