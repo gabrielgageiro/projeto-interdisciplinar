@@ -7,29 +7,28 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Login extends JFrame{
-    private int inicia=0;
+public class Login extends JFrame {
     private JTextField login;
     private JPasswordField senha;
     private JButton logar;
-    private  JButton cancelar;
+    private JButton cancelar;
 
-    public Login(){
+    public Login() {
         super("Tela de login");
 
-        login= new JTextField();
-        senha= new JPasswordField();
+        login = new JTextField();
+        senha = new JPasswordField();
 
-        logar= new JButton("Logar");
+        logar = new JButton("Logar");
         logar.addActionListener(new BotaoLogar());
-        cancelar= new JButton("Cancelar");
+        cancelar = new JButton("Cancelar");
         cancelar.addActionListener(new BotaoCancelar());
 
-        Container c= getContentPane();
+        Container c = getContentPane();
 
-        c.setLayout(new GridLayout(3,2,3,3));
+        c.setLayout(new GridLayout(3, 2, 3, 3));
         //Poe Fonte
-        Font fonte = new Font("serif",Font.BOLD | Font.ITALIC,20);
+        Font fonte = new Font("serif", Font.BOLD | Font.ITALIC, 20);
         //icones
         ImageIcon iconeSenha = new ImageIcon(getClass().getResource("icones/senha.png"));
 
@@ -56,11 +55,11 @@ public class Login extends JFrame{
         c.add(cancelar);
         //tamanho da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300,150);
+        setSize(300, 150);
         setVisible(true);
     }
 
-    private class BotaoCancelar implements ActionListener{
+    private class BotaoCancelar implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -70,22 +69,17 @@ public class Login extends JFrame{
         }
     }
 
-    private class BotaoLogar implements ActionListener{
+    private class BotaoLogar implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (login.getText().equals("admin") && new String(senha.getPassword()).equals("admin")){
-                inicia=1;
-                JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!");
-                new Principal();
+            if (login.getText().equals("admin") && new String(senha.getPassword()).equals("admin")) {
+
                 dispose();
-            }else {
-                JOptionPane.showMessageDialog(null,"Usuario e senha nao confere!");
+                new Principal();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario e senha nao confere!");
             }
         }
     }
-    public int iniciar(){
-        return inicia;
-    }
-
 }

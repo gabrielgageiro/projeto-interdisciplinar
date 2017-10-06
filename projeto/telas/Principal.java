@@ -1,5 +1,4 @@
 package projeto.telas;
-
 import oracle.jrockit.jfr.JFR;
 
 import javax.swing.*;
@@ -25,4 +24,6 @@ public class Principal extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+
+
 }
