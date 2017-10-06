@@ -10,7 +10,8 @@ public class Pessoa {
         this.codigo = codigo;
         this.ocupacao = ocupacao;
     }
-    //impl
+    public Pessoa(){}
+
     public String getNome() {return nome;}
 
     public void setNome(String nome) {this.nome = nome;}
