@@ -1,5 +1,6 @@
 package projeto.escola;
 
+import projeto.bancoDeDados.BancoDeDados;
 import projeto.telas.Login;
 import projeto.telas.Principal;
 
@@ -9,9 +10,9 @@ public class Main {
         Escola bucao = new Escola();
 
         new Login();
-
+        
         System.out.println("Ola mundo");
-        //BancoDeDados bd = new BancoDeDados();
-        //bd.connect();
+        BancoDeDados bd = new BancoDeDados();
+        bd.connect();
     }
 }

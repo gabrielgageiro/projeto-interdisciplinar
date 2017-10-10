@@ -5,6 +5,11 @@ import java.lang.*;
 
 public class BancoDeDados {
 
+    private static final String DRIVER = "jdbc:sqlite:test.db";
+    private static final String URL = "";
+    private static final String USER = "";
+    private static final String PASS = "";
+
     public void connect() {
         Connection conn = null;
         Connection c = null;
@@ -18,4 +23,9 @@ public class BancoDeDados {
         }
         System.out.println("Conexao estabelecida");
     }
+
+    public void inserirDados(){
+
+    }
+
 }
