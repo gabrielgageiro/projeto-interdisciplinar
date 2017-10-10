@@ -10,7 +10,7 @@ public class Main {
         Escola bucao = new Escola();
 
         new Login();
-        
+        //bd
         System.out.println("Ola mundo");
         BancoDeDados bd = new BancoDeDados();
         bd.connect();
