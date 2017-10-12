@@ -1,7 +1,6 @@
 package projeto.bancoDeDados;
 
 import java.sql.*;
-import java.lang.*;
 
 public class BancoDeDados {
 
