@@ -34,6 +34,7 @@ public class TelaPrincipal extends JFrame {
 		JButton listarMateriais = new JButton("Listar Materiais");
 		listarMateriais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				bucao.mostrarMateriais();
 			}
 		});
 		contentPane.add(listarMateriais);
