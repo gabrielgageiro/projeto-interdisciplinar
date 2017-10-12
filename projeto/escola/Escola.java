@@ -21,6 +21,7 @@ public class Escola {
     }
     public void cadastrarMateriais() throws InputMismatchException {
         try {
+        	
             Scanner l = new Scanner(System.in);
             l.useLocale(Locale.ENGLISH);
             System.out.print("Nome do item: ");

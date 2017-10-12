@@ -77,6 +77,6 @@ public class Login extends JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario e senha nao confere!");
             }
-        }
+       }
     }
 }
