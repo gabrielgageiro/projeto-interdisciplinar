@@ -72,9 +72,9 @@ public class Login extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (login.getText().equals("admin") && new String(senha.getPassword()).equals("admin")) {
+            	new TelaPrincipal();
 
                 dispose();
-                new Principal();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario e senha nao confere!");
             }
