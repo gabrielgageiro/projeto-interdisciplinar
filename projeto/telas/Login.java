@@ -63,7 +63,6 @@ public class Login extends JFrame {
         public void actionPerformed(ActionEvent e) {
             login.setText("");
             senha.setText("");
-
         }
     }
 
