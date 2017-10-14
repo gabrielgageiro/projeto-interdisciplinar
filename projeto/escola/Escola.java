@@ -1,4 +1,5 @@
 package projeto.escola;
+import projeto.bancoDeDados.*;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -6,6 +7,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Escola {
+    private BancoDeDados bd = new BancoDeDados();
     private int qtdAluno, qtdProfessor;
     private float verba = 0, gastosDidatico, gastosEscritorio, gastosPedagogico;
     private String nomeDaEscola;
@@ -20,6 +22,7 @@ public class Escola {
         return gastosDidatico / qtdAluno;
     }
     public void cadastrarMateriais() throws InputMismatchException {
+
         try {
         	
             Scanner l = new Scanner(System.in);
@@ -33,10 +36,13 @@ public class Escola {
             System.out.print("Valor unitario (Ex.: 15.75): ");
             pro.setValor(l.nextFloat());
             produtos.add(pro);
-            calcularGastos();
         } catch (InputMismatchException e) {
             System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
         }
+       // String nome,String tipo,short qtd,float valor
+
+        bd.inserirDados(pro.getNomeProduto(),pro.getTipo(),pro.getQtd(),pro.getValor());
+
     }
     public void cadastrarIntegrantesEscola() throws  InputMismatchException{
         try{
@@ -92,9 +98,7 @@ public class Escola {
 
     public void mostrarMateriais() {
         System.out.println("TODOS OS MATERIAIS ABAIXO:");
-        for (Produto pro : produtos) {
-            System.out.println(pro.getNomeProduto() + " " + pro.getQtd() + " " + pro.getValor());
-        }
+        System.out.println(bd.mostrarDados());
     }
     public void mostrarIntegrantesEscola(){
         System.out.println("TODOS OS PROFESSORES ABAIXO:");

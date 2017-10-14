@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static java.lang.System.exit;
+
 public class Login extends JFrame {
     private JTextField login;
     private JPasswordField senha;
@@ -61,8 +63,7 @@ public class Login extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            login.setText("");
-            senha.setText("");
+            exit(0);
         }
     }
 
@@ -70,6 +71,7 @@ public class Login extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
             if (login.getText().equals("admin") && new String(senha.getPassword()).equals("admin")) {
             	new TelaPrincipal();
 
