@@ -43,13 +43,21 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(calcularCustos);
 		
 		JButton cadastrarMateriais = new JButton("Cadastrar Materiais");
+		contentPane.add(cadastrarMateriais);
 		cadastrarMateriais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bucao.cadastrarMateriais();
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							new AdicionarMateriais();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 			}
 		});
-		contentPane.add(cadastrarMateriais);
-		
+
 	}
 
 }

@@ -1,10 +1,13 @@
 package projeto.escola;
 import projeto.bancoDeDados.*;
+import projeto.telas.mostrarItem;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 public class Escola {
     private BancoDeDados bd = new BancoDeDados();
@@ -21,29 +24,7 @@ public class Escola {
     public float calculaCustoMedioAluno(){
         return gastosDidatico / qtdAluno;
     }
-    public void cadastrarMateriais() throws InputMismatchException {
 
-        try {
-        	
-            Scanner l = new Scanner(System.in);
-            l.useLocale(Locale.ENGLISH);
-            System.out.print("Nome do item: ");
-            pro.setNomeProduto(l.nextLine());
-            System.out.print("Tipo (Escritorio, Didatico, etc)):");
-            pro.setTipo(l.nextLine());
-            System.out.print("Quantidade adquirida: ");
-            pro.setQtd(l.nextShort());
-            System.out.print("Valor unitario (Ex.: 15.75): ");
-            pro.setValor(l.nextFloat());
-            produtos.add(pro);
-        } catch (InputMismatchException e) {
-            System.err.println("ENTRADA INCOMPATIVEL! VERIFIQUE SE INFORMOU OS VALORSE NOS CAMPOS CORRETOS");
-        }
-       // String nome,String tipo,short qtd,float valor
-
-        bd.inserirDados(pro.getNomeProduto(),pro.getTipo(),pro.getQtd(),pro.getValor());
-
-    }
     public void cadastrarIntegrantesEscola() throws  InputMismatchException{
         try{
             Scanner l = new Scanner(System.in);
@@ -82,7 +63,6 @@ public class Escola {
                 produtos.get(i).setQtd((short) (produtos.get(i).getQtd() - 1));
             } else {
                 System.out.println("Item não cadastrado. Por favor, cadastre.");
-                cadastrarMateriais();
                 break;
             }
         }
@@ -98,7 +78,8 @@ public class Escola {
 
     public void mostrarMateriais() {
         System.out.println("TODOS OS MATERIAIS ABAIXO:");
-        System.out.println(bd.mostrarDados());
+
+        new mostrarItem(bd.mostrarDados());
     }
     public void mostrarIntegrantesEscola(){
         System.out.println("TODOS OS PROFESSORES ABAIXO:");

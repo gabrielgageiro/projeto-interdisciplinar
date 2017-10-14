@@ -61,10 +61,16 @@ public class BancoDeDados {
             // loop through the result set
             // String nome,String tipo,short qtd,float valor
             while (rs.next()) {
+                dados+=rs.getInt("id") +  "\n" +
+                        rs.getString("nome") + "\n" +
+                        rs.getString("tipo")+"\n"+
+                        rs.getInt("quantidade")+ "\n"+
+                        rs.getFloat("valor");
+
                 System.out.println(rs.getInt("id") +  "\t" +
                         rs.getString("nome") + "\t" +
                         rs.getString("tipo")+"\t"+
-                        rs.getShort("quantidade")+ "\t"+
+                        rs.getInt("quantidade")+ "\t"+
                         rs.getFloat("valor"));
 
 
@@ -76,7 +82,7 @@ public class BancoDeDados {
     }
 
 
-    public void inserirDados(String nome,String tipo,short qtd,float valor ){
+    public void inserirDados(String nome,String tipo,int qtd,float valor ){
         criarTable();
 
         String sql = "INSERT INTO produtos(nome,tipo,quantidade,valor) VALUES (?,?,?,?)";
@@ -84,7 +90,7 @@ public class BancoDeDados {
         try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
             pstm.setString(1,nome);
             pstm.setString(2,tipo);
-            pstm.setShort(3,qtd);
+            pstm.setInt(3,qtd);
             pstm.setFloat(4,valor);
             pstm.executeUpdate();
         } catch (SQLException e) {

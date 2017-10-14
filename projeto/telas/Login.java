@@ -56,7 +56,9 @@ public class Login extends JFrame {
         //tamanho da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 150);
-        setVisible(true);
+        setVisible(true);		
+        getRootPane().setDefaultButton(logar);
+
     }
 
     private class BotaoCancelar implements ActionListener {
