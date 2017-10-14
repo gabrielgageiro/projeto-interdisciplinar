@@ -9,7 +9,7 @@ public class BancoDeDados {
     private static final String USER = "";
     private static final String PASS = "";
 
-    public void connect() {
+    public BancoDeDados() {
         Connection conn = null;
         Connection c = null;
 
