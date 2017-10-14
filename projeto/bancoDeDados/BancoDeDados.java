@@ -23,8 +23,12 @@ public class BancoDeDados {
         System.out.println("Conexao estabelecida");
     }
 
+    public void CriarTablea( ) {
+    	
+    }
+    
     public void inserirDados(){
-    		//select dados
+
     }
 
 }
