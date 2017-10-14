@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="de801dc7-ed53-4a32-89ed-471c33f31ed9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/projeto/bancoDeDados/BancoDeDados.class" afterPath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/projeto/bancoDeDados/BancoDeDados.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.db" afterPath="$PROJECT_DIR$/test.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/bancoDeDados/BancoDeDados.java" afterPath="$PROJECT_DIR$/projeto/bancoDeDados/BancoDeDados.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/escola/Escola.java" afterPath="$PROJECT_DIR$/projeto/escola/Escola.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/escola/Main.java" afterPath="$PROJECT_DIR$/projeto/escola/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/telas/Login.java" afterPath="$PROJECT_DIR$/projeto/telas/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/telas/TelaPrincipal.java" afterPath="$PROJECT_DIR$/projeto/telas/TelaPrincipal.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +43,8 @@
       <file leaf-file-name="mostrarItem.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projeto/telas/mostrarItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            <state relative-caret-position="360">
+              <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -378,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507962516882</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="banco de dados e telas">
+      <created>1507967724450</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1507967724450</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -418,7 +419,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="att" />
-    <option name="LAST_COMMIT_MESSAGE" value="att" />
+    <MESSAGE value="banco de dados e telas" />
+    <option name="LAST_COMMIT_MESSAGE" value="banco de dados e telas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -832,8 +834,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto/telas/mostrarItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        <state relative-caret-position="360">
+          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
           <folding />
         </state>
       </provider>
