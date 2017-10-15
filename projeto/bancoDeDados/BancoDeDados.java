@@ -27,7 +27,7 @@ public class BancoDeDados {
         try {
             conn = DriverManager.getConnection(URL);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.getMessage();
         }
         return conn;
     }
