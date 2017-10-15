@@ -1,6 +1,5 @@
 package projeto.escola;
 
-import projeto.bancoDeDados.BancoDeDados;
 import projeto.telas.*;
 
 public class Main {
