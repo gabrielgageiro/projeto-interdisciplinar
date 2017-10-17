@@ -87,6 +87,7 @@ public class AdicionarMateriais extends JFrame {
                 txtValor.setText("");
                 txtQuantidade.setText("");
                 txtTipo.setText("");
+                txtTextonome.setText("");
             }
 		});
 		getRootPane().setDefaultButton(btnCadastrar);
