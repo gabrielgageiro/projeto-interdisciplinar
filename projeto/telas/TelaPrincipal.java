@@ -1,3 +1,4 @@
+/*Não esquecer de adicionar os icones na pasta icones..................*/
 package projeto.telas;
 import projeto.escola.*;
 
