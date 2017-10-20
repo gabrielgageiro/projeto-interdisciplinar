@@ -7,44 +7,38 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
+import java.awt.CardLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaPrincipal extends JFrame {
-	
-	private Escola bucao = new Escola();
-	private JPanel contentPane;
-
+    private Escola bucao = new Escola();
+    private JPanel contentPane;
 	/**
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
-			
-		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+                setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(4, 4, 0, 0));
 		
-		JButton listarMateriais = new JButton("Listar Materiais");
-		listarMateriais.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bucao.mostrarMateriais();
-			}
-		});
-		contentPane.add(listarMateriais);
+		JLabel LabelControlePrincipal = new JLabel("Controle Principal");
+		LabelControlePrincipal.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		
-		JButton calcularCustos = new JButton("Calcular Custos");
-		contentPane.add(calcularCustos);
-		
-		JButton cadastrarMateriais = new JButton("Cadastrar Materiais");
-		contentPane.add(cadastrarMateriais);
-		cadastrarMateriais.addActionListener(new ActionListener() {
+		JButton btnCadastroMaterial = new JButton("Cadastrar Materiais");
+		btnCadastroMaterial.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/lapis3.png")));
+                contentPane.add(btnCadastroMaterial);
+		btnCadastroMaterial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
@@ -57,7 +51,96 @@ public class TelaPrincipal extends JFrame {
 				});
 			}
 		});
+		
+		JButton btnListarMaterial = new JButton(" Relat\u00F3rio de Materiais");
+		btnListarMaterial.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/pancheta.png")));
+                btnListarMaterial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				bucao.mostrarMateriais();
+			}
+		});
+                
+		
+		JButton btnremoverMaterial = new JButton("Remover Materiais");
+		btnremoverMaterial.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/remover4.png")));
+		btnremoverMaterial.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                       try{
+                           new RemoverMateriais();
+                       }catch(Exception e){
+                           System.out.println("Deu erro");
+                       }
+                    }
+                });
+            }
+        });
+                
+		JButton btnSair = new JButton("Sair");
+                btnSair.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                       try{
+                           dispose();
+                       }catch(Exception e){
+                           System.out.println("Deu erro");
+                       }
+                    }
+                });
+            }
+        });
+		
+		JButton btnCalcularVerba = new JButton("Calcular Verba");
+		btnCalcularVerba.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/cifrao.png")));
 
+		JButton btnCalcularCusto = new JButton("Calcular Custos");
+		btnCalcularCusto.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/custo.png")));
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(LabelControlePrincipal, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE)
+							.addGap(58))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+							.addGap(157))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(btnListarMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnCadastroMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(btnCalcularCusto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnCalcularVerba, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+							.addContainerGap())
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(btnremoverMaterial, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(LabelControlePrincipal)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnCadastroMaterial)
+						.addComponent(btnCalcularVerba))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnCalcularCusto)
+						.addComponent(btnListarMaterial))
+					.addGap(18)
+					.addComponent(btnremoverMaterial)
+					.addPreferredGap(ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+					.addComponent(btnSair)
+					.addContainerGap())
+		);
+		contentPane.setLayout(gl_contentPane);
 	}
-
 }
