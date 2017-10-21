@@ -1,4 +1,3 @@
-/*Não esquecer de adicionar os icones na pasta icones..................*/
 package projeto.telas;
 import projeto.escola.*;
 
@@ -56,9 +55,17 @@ public class TelaPrincipal extends JFrame {
 		JButton btnListarMaterial = new JButton(" Relat\u00F3rio de Materiais");
 		btnListarMaterial.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/pancheta.png")));
                 btnListarMaterial.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bucao.mostrarMateriais();
-			}
+                    public void actionPerformed(ActionEvent e){
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                       try{
+                           new RelatorioMateriais();
+                       }catch(Exception e){
+                           System.out.println("Deu erro");
+                       }
+                    }
+                });
+            }
 		});
                 
 		
@@ -95,9 +102,40 @@ public class TelaPrincipal extends JFrame {
 		
 		JButton btnCalcularVerba = new JButton("Calcular Verba");
 		btnCalcularVerba.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/cifrao.png")));
+                 btnCalcularVerba.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                       try{
+                           new CalculaVerba();
+                       }catch(Exception e){
+                           System.out.println("Deu erro");
+                       }
+                    }
+                });
+            }
+        });
 
 		JButton btnCalcularCusto = new JButton("Calcular Custos");
 		btnCalcularCusto.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/custo.png")));
+		
+		JButton btnEditar = new JButton("Editar");
+                btnEditar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                       try{
+                           new EditarMaterial();
+                       }catch(Exception e){
+                           System.out.println("Deu erro");
+                       }
+                    }
+                });
+            }
+        });
+                
+                
+                
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -107,20 +145,20 @@ public class TelaPrincipal extends JFrame {
 						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 							.addComponent(LabelControlePrincipal, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE)
 							.addGap(58))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
-							.addGap(157))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(btnremoverMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnListarMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnCadastroMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(btnCalcularCusto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnCalcularVerba, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
 							.addContainerGap())
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnremoverMaterial, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(btnEditar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -138,8 +176,10 @@ public class TelaPrincipal extends JFrame {
 						.addComponent(btnListarMaterial))
 					.addGap(18)
 					.addComponent(btnremoverMaterial)
-					.addPreferredGap(ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-					.addComponent(btnSair)
+					.addPreferredGap(ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnSair)
+						.addComponent(btnEditar))
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
