@@ -25,7 +25,7 @@ public class RemoverMateriais extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RemoverMateriais() {
+	public RemoverMateriais(TelaPrincipal tp) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
                 setVisible(true);

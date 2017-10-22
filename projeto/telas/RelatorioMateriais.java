@@ -35,7 +35,7 @@ public class RelatorioMateriais extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RelatorioMateriais() {
+	public RelatorioMateriais(TelaPrincipal tp) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 400);
                 setVisible(true);

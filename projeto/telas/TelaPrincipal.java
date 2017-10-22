@@ -63,8 +63,10 @@ public class TelaPrincipal extends JFrame {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
                        try{
-                           new RelatorioMateriais();
-                       }catch(Exception e){
+                           new RelatorioMateriais(tp);
+						   //setvisible(false);
+
+					   }catch(Exception e){
                            System.out.println("Deu erro");
                        }
                     }
@@ -80,7 +82,9 @@ public class TelaPrincipal extends JFrame {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
                        try{
-                           new RemoverMateriais();
+                           new RemoverMateriais(tp);
+                           //setvisible(false);
+
                        }catch(Exception e){
                            System.out.println("Deu erro");
                        }
@@ -111,7 +115,9 @@ public class TelaPrincipal extends JFrame {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
                        try{
-                           new CalculaVerba();
+                           new CalculaVerba(tp);
+                           //setvisible(false);
+
                        }catch(Exception e){
                            System.out.println("Deu erro");
                        }
@@ -129,7 +135,9 @@ public class TelaPrincipal extends JFrame {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
                        try{
-                           new EditarMaterial();
+                           new EditarMaterial(tp);
+                           //setvisible(false);
+
                        }catch(Exception e){
                            System.out.println("Deu erro");
                        }

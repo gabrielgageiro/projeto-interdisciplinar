@@ -26,7 +26,7 @@ public class CalculaVerba extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CalculaVerba() {
+	public CalculaVerba(TelaPrincipal tp) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
                 setVisible(true);

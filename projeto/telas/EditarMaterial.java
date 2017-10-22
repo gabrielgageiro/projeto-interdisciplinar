@@ -22,7 +22,7 @@ public class EditarMaterial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EditarMaterial() {
+	public EditarMaterial(TelaPrincipal tp) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
                 setVisible(true);
