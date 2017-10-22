@@ -33,7 +33,7 @@ public class AdicionarMateriais extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdicionarMateriais() {
+	public AdicionarMateriais(TelaPrincipal tp) {
 		setTitle("Cadastrar Materiais");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
@@ -100,7 +100,7 @@ public class AdicionarMateriais extends JFrame {
 		telaMateriais.add(btnCancelar);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				tp.setVisible(true);dispose();
 			}
 		});
 	}

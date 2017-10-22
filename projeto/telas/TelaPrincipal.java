@@ -38,12 +38,16 @@ public class TelaPrincipal extends JFrame {
 		JButton btnCadastroMaterial = new JButton("Cadastrar Materiais");
 		btnCadastroMaterial.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/lapis3.png")));
                 contentPane.add(btnCadastroMaterial);
-		btnCadastroMaterial.addActionListener(new ActionListener() {
+        TelaPrincipal tp = this;
+
+        btnCadastroMaterial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							new AdicionarMateriais();
+							new AdicionarMateriais(tp);
+							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
