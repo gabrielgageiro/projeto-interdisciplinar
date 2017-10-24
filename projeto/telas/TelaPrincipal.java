@@ -1,4 +1,5 @@
 package projeto.telas;
+import projeto.bancoDeDados.BancoDeDados;
 import projeto.escola.*;
 
 import java.awt.BorderLayout;
@@ -64,7 +65,8 @@ public class TelaPrincipal extends JFrame {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
                        try{
-                           new RelatorioMateriais(tp);
+                           new mostrarItem(new BancoDeDados().mostrarDados());
+                    	   //new RelatorioMateriais(tp);
 						   //setvisible(false);
 
 					   }catch(Exception e){
