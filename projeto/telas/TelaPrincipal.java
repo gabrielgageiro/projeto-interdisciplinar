@@ -20,7 +20,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaPrincipal extends JFrame {
-    private Escola bucao = new Escola();
     private JPanel contentPane;
 	/**
 	 * Create the frame.
