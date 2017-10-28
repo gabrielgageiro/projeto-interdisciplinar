@@ -97,5 +97,19 @@ public class BancoDeDados {
             JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
+    public void delete(String nome) {
+        String sql = "DELETE FROM produtos WHERE nome = ?";
 
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            pstmt.setString(1, nome);
+            // execute the delete statement
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

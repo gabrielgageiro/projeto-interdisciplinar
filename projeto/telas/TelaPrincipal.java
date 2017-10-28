@@ -26,6 +26,8 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		super("Controle Principal");
+		TelaPrincipal tp = this;
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
                 setVisible(true);
@@ -39,7 +41,6 @@ public class TelaPrincipal extends JFrame {
 		JButton btnCadastroMaterial = new JButton("Cadastrar Materiais");
 		btnCadastroMaterial.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/lapis3.png")));
                 contentPane.add(btnCadastroMaterial);
-        TelaPrincipal tp = this;
 
         btnCadastroMaterial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -64,9 +65,9 @@ public class TelaPrincipal extends JFrame {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
                        try{
-                           new mostrarItem(new BancoDeDados().mostrarDados());
-                    	   //new RelatorioMateriais(tp);
-						   //setvisible(false);
+                           new mostrarItem(new BancoDeDados().mostrarDados(),tp);
+                    	  // new RelatorioMateriais(tp);
+						   setVisible(false);
 
 					   }catch(Exception e){
                            System.out.println("Deu erro");

@@ -21,7 +21,7 @@ public class mostrarItem extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public mostrarItem(String dados) {
+	public mostrarItem(String dados, TelaPrincipal tp) {
 		setVisible(true);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -44,6 +44,12 @@ public class mostrarItem extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
+
+        btnOk.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();tp.setVisible(true);
+            }
+        });
 	}
 
 }
