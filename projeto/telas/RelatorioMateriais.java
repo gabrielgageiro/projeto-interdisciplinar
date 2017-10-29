@@ -64,6 +64,22 @@ public class RelatorioMateriais extends JFrame {
 		
 		JButton btnSair = new JButton("Sair");
 		
+		btnSair.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try{
+									new RemoverMateriais(tp);
+									//setvisible(false);
+
+								}catch(Exception e){
+									JOptionPane.showMessageDialog(null,"Erro");
+								}
+							}
+						});
+            }
+        });
+		
 		JLabel label = new JLabel("");
 		
 		
