@@ -96,6 +96,22 @@ public class AdicionarMateriais extends JFrame {
 		telaMateriais.add(btnCadastrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try{
+									new RemoverMateriais(tp);
+									//setvisible(false);
+								}catch(Exception e){
+									JOptionPane.showMessageDialog(null,"Erro");
+								}
+							}
+						});
+            }
+        });
+		
+		
 		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 10));
 		telaMateriais.add(btnCancelar);
 		btnCancelar.addActionListener(new ActionListener() {
