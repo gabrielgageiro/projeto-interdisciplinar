@@ -40,6 +40,23 @@ public class EditarMaterial extends JFrame {
 		JButton btnEditaMaterial = new JButton("Editar Materiais");
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try{
+									new RemoverMateriais(tp);
+									//setvisible(false);
+
+								}catch(Exception e){
+									JOptionPane.showMessageDialog(null,"Erro");
+								}
+							}
+						});
+            }
+        });
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
