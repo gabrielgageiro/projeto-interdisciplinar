@@ -77,6 +77,22 @@ public class RemoverMateriais extends JFrame {
         });
 
         JButton Cancelar = new JButton("Cancelar");
+	Cancelar.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try{
+									new RemoverMateriais(tp);
+									//setvisible(false);
+								}catch(Exception e){
+									JOptionPane.showMessageDialog(null,"Erro");
+								}
+							}
+						});
+            }
+        });
+		
+		
         Cancelar.setBounds(313, 227, 89, 23);
         contentPane.add(Cancelar);
         Cancelar.addActionListener(new ActionListener() {
