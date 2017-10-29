@@ -48,6 +48,23 @@ public class CalculaVerba extends JFrame {
 		textPrazo.setColumns(10);
 		
 		JButton btnSairCalcVerba = new JButton("Sair");
+		btnSairCalcVerba.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try{
+									new RemoverMateriais(tp);
+									//setvisible(false);
+
+								}catch(Exception e){
+									JOptionPane.showMessageDialog(null,"Erro");
+								}
+							}
+						});
+            }
+        });
+		
+		
 		
 		JButton btnOrçamento = new JButton("Calcular Or\u00E7amento");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
