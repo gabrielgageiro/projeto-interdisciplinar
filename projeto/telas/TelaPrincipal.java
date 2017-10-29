@@ -75,7 +75,7 @@ public class TelaPrincipal extends JFrame {
 						   setVisible(false);
 
 					   }catch(Exception e){
-                           System.out.println("Deu erro");
+                           JOptionPane.showMessageDialog(null,"Erro");
                        }
                     }
                 });
