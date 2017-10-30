@@ -72,21 +72,21 @@ public class RemoverMateriais extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 new BancoDeDados().delete(FieldNomeMaterial.getText());
                 FieldNomeMaterial.setText("");
-                FieldQtdMaterial.setText("");
+                //FieldQtdMaterial.setText("");
             }
         });
 
         JButton Cancelar = new JButton("Cancelar");
-	Cancelar.addActionListener(new ActionListener(){
+	    Cancelar.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try{
-									new RemoverMateriais(tp);
-									//setvisible(false);
+									dispose();
+                                    tp.setVisible(true);
 								}catch(Exception e){
-									JOptionPane.showMessageDialog(null,"Erro");
-								}
+                                    System.out.println(e.getMessage());
+                                }
 							}
 						});
             }

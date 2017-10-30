@@ -104,8 +104,8 @@ public class AdicionarMateriais extends JFrame {
 									new RemoverMateriais(tp);
 									//setvisible(false);
 								}catch(Exception e){
-									JOptionPane.showMessageDialog(null,"Erro");
-								}
+                                    System.out.println(e.getMessage());
+                                }
 							}
 						});
             }

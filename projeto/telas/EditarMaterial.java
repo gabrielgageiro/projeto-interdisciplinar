@@ -9,6 +9,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
@@ -49,7 +51,7 @@ public class EditarMaterial extends JFrame {
 									//setvisible(false);
 
 								}catch(Exception e){
-									JOptionPane.showMessageDialog(null,"Erro");
+									System.out.println(e.getMessage());
 								}
 							}
 						});

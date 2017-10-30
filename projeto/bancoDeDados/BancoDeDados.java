@@ -94,7 +94,7 @@ public class BancoDeDados {
             pstm.setFloat(4,valor);
             pstm.executeUpdate();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
     public void delete(String nome) {
