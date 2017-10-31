@@ -47,6 +47,13 @@ public class BancoDeDados {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        String sql = "CREATE TABLE IF NOT EXISTS verba(\n" +
+                "id integer PRIMARY KEY,\n" +
+                "nome text NOT NULL,\n" +
+                "tipo text,\n" +
+                "quantidade integer,\n" +
+                "valor real\n" +
+                ");";
     }
 
     public String mostrarDados(){
@@ -81,6 +88,9 @@ public class BancoDeDados {
         return dados;
     }
 
+    public void inserirVerba (float valores,float custos){
+
+    }
 
     public void inserirDados(String nome,String tipo,int qtd,float valor ){
         criarTable();
