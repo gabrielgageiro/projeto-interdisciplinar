@@ -47,7 +47,7 @@ public class BancoDeDados {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        String sql = "CREATE TABLE IF NOT EXISTS verba(\n" +
+        String sqlv = "CREATE TABLE IF NOT EXISTS verba(\n" +
                 "id integer PRIMARY KEY,\n" +
                 "nome text NOT NULL,\n" +
                 "tipo text,\n" +
