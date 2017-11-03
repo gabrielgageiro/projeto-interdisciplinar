@@ -82,7 +82,17 @@ public class BancoDeDados {
 
     public void inserirVerba (float verba){
         //IMPLEMENTAR AQUI HOJE!
-    }
+        String sql = "INSERT into verba(verba) VALUES(?)";
+
+        try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
+                pstm.setFloat(1,verba);
+                pstm.executeUpdate();
+            } catch (SQLException e){
+                System.out.println(e.getMessage());
+            }
+        }
+
+
 
     public void inserirDados(String nome,String tipo,int qtd,float valor ){
         criarTable();
