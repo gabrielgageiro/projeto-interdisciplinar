@@ -64,8 +64,8 @@ public class RelatorioMateriais extends JFrame {
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try{
-									new RemoverMateriais(tp);
-									//setvisible(false);
+									tp.setVisible(true);
+									dispose();
 
 								}catch(Exception e){
 									JOptionPane.showMessageDialog(null,"Erro");

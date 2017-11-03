@@ -58,8 +58,7 @@ public class BancoDeDados {
 
              ResultSet rs = stmt.executeQuery(sql)){
 
-            // loop through the result set
-            // String nome,String tipo,short qtd,float valor
+            //itera sobre os resultados
             while (rs.next()) {
                 dados+=rs.getInt("id") +  "\n" +
                         rs.getString("nome") + "\n" +
@@ -81,6 +80,9 @@ public class BancoDeDados {
         return dados;
     }
 
+    public void inserirVerba (float verba){
+        //IMPLEMENTAR AQUI HOJE!
+    }
 
     public void inserirDados(String nome,String tipo,int qtd,float valor ){
         criarTable();

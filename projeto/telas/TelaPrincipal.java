@@ -67,7 +67,6 @@ public class TelaPrincipal extends JFrame {
                     public void run() {
                        try{
                            new mostrarItem(new BancoDeDados().mostrarDados(),tp);
-                    	  // new RelatorioMateriais(tp);
 						   setVisible(false);
 
 					   }catch(Exception e){
@@ -87,7 +86,7 @@ public class TelaPrincipal extends JFrame {
                     public void run() {
                        try{
                            new RemoverMateriais(tp);
-                           //setvisible(false);
+                           setVisible(false);
 
                        }catch(Exception e){
                            System.out.println("Deu erro");
@@ -120,7 +119,7 @@ public class TelaPrincipal extends JFrame {
                     public void run() {
                        try{
                            new CalculaVerba(tp);
-                           //setvisible(false);
+                           setVisible(false);
 
                        }catch(Exception e){
                            System.out.println("Deu erro");
@@ -140,7 +139,7 @@ public class TelaPrincipal extends JFrame {
                     public void run() {
                        try{
                            new EditarMaterial(tp);
-                           //setvisible(false);
+                           setVisible(false);
 
                        }catch(Exception e){
                            System.out.println("Deu erro");

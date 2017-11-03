@@ -54,16 +54,7 @@ public class RemoverMateriais extends JFrame {
         FieldNomeMaterial.setBounds(258, 54, 86, 20);
         contentPane.add(FieldNomeMaterial);
         FieldNomeMaterial.setColumns(10);
-/*
-        JLabel QuantidadeMateriais = new JLabel("Quantidade de Materiais: ");
-        QuantidadeMateriais.setBounds(114, 109, 136, 14);
-        contentPane.add(QuantidadeMateriais);
 
-        FieldQtdMaterial = new JTextField();
-        FieldQtdMaterial.setBounds(258, 106, 86, 20);
-        contentPane.add(FieldQtdMaterial);
-        FieldQtdMaterial.setColumns(10);
-*/
         JButton remover = new JButton("Remover");
         remover.setBounds(24, 227, 89, 23);
         contentPane.add(remover);

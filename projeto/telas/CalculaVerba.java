@@ -55,8 +55,8 @@ public class CalculaVerba extends JFrame {
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try{
-									new RemoverMateriais(tp);
-									//setvisible(false);
+									tp.setVisible(true);
+									dispose();
 
 								}catch(Exception e){
 									System.out.println(e.getMessage());
