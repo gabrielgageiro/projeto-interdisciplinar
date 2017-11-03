@@ -22,12 +22,8 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		super("Controle Principal");
-		Calendar calendar = Calendar.getInstance();
-		int diaAno = calendar.get(Calendar.DAY_OF_YEAR);
-		int diaFinalPrazo = 334;//334 é dia 30/11
-		int tempoAteDiaFinal = diaFinalPrazo - diaAno;
-		JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+tempoAteDiaFinal);
-		TelaPrincipal tp = this;
+
+        TelaPrincipal tp = this;
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

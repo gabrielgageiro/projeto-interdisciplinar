@@ -5,11 +5,20 @@ import projeto.telas.TelaPrincipal;
 
 import projeto.bancoDeDados.*;
 
+import javax.swing.*;
+import java.util.Calendar;
+
 
 public class Main {
   
     public static void main(String[] args) {
         //new Login();
+        Calendar calendar = Calendar.getInstance();
+        int diaAno = calendar.get(Calendar.DAY_OF_YEAR);
+        int diaFinalPrazo = 334;//334 é dia 30/11
+        int tempoAteDiaFinal = diaFinalPrazo - diaAno;
+        JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+tempoAteDiaFinal);
+
 
         new TelaPrincipal();
     }
