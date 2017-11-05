@@ -12,10 +12,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 
 public class mostrarItem extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel panel;
+	private JTextArea textArea;
 
 	
 	/**
@@ -39,11 +43,13 @@ public class mostrarItem extends JFrame {
 		});
 		contentPane.add(btnOk, BorderLayout.SOUTH);
 		
-		JTextArea textArea = new JTextArea(dados);
-		contentPane.add(textArea, BorderLayout.CENTER);
+		panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
 		
-		JScrollPane scrollPane = new JScrollPane(textArea);
-		contentPane.add(scrollPane, BorderLayout.CENTER);
+		textArea = new JTextArea();
+		textArea.setEditable(false);
+		
+		panel.add(textArea);
 
         btnOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
