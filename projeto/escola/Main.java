@@ -15,11 +15,11 @@ public class Main {
         //new Login();
         Calendar calendar = Calendar.getInstance();
         int diaAno = calendar.get(Calendar.DAY_OF_YEAR);
-        int diaFinalPrazo = 334;//334 é dia 30/11
+        int diaFinalPrazo = 317;//334 é dia 30/11
         int tempoAteDiaFinal = diaFinalPrazo - diaAno;
-        JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+tempoAteDiaFinal);
-
+       // JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+tempoAteDiaFinal);
 
         new TelaPrincipal();
+
     }
 }

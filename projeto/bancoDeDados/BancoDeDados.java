@@ -33,6 +33,12 @@ public class BancoDeDados {
     }
 
     public void criarTable( ) {
+        String sql1 = "CREATE TABLE IF NOT EXISTS verba(\n"+
+                "id integer PRIMARY KEY,\n" +
+                "valores real\n" +
+                "prazo integer,\n" +
+                ");";
+
         String sql = "CREATE TABLE IF NOT EXISTS produtos(\n" +
                 "id integer PRIMARY KEY,\n" +
                 "nome text NOT NULL,\n" +
@@ -43,6 +49,7 @@ public class BancoDeDados {
         try (Connection conn = DriverManager.getConnection(URL);
              Statement stmt = conn.createStatement()) {
             // cria a nova tabela
+            stmt.execute(sql1);
             stmt.execute(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -65,13 +72,13 @@ public class BancoDeDados {
                         rs.getString("tipo")+"\n"+
                         rs.getInt("quantidade")+ "\n"+
                         rs.getFloat("valor");
-
+                /*
                 System.out.println(rs.getInt("id") +  "\t" +
                         rs.getString("nome") + "\t" +
                         rs.getString("tipo")+"\t"+
                         rs.getInt("quantidade")+ "\t"+
                         rs.getFloat("valor"));
-
+*/
 
             }
         } catch (SQLException e) {
@@ -80,12 +87,15 @@ public class BancoDeDados {
         return dados;
     }
 
-    public void inserirVerba (float verba){
-        //IMPLEMENTAR AQUI HOJE!
-        String sql = "INSERT into verba(verba) VALUES(?)";
+    public void inserirVerba (float valorVerba,int prazo){
+
+        criarTable();
+
+        String sql = "INSERT into verba(valorVverba,prazo) VALUES(?,?)";
 
         try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
-                pstm.setFloat(1,verba);
+                pstm.setFloat(1,valorVerba);
+                pstm.setInt(2,prazo);
                 pstm.executeUpdate();
             } catch (SQLException e){
                 System.out.println(e.getMessage());

@@ -56,7 +56,7 @@ public class RemoverMateriais extends JFrame {
         FieldNomeMaterial.setColumns(10);
 
         JButton remover = new JButton("Remover");
-        remover.setBounds(24, 227, 89, 23);
+        remover.setBounds(24, 227, 120, 23);
         contentPane.add(remover);
 
         remover.addActionListener(new ActionListener() {
@@ -84,7 +84,7 @@ public class RemoverMateriais extends JFrame {
         });
 		
 		
-        Cancelar.setBounds(313, 227, 89, 23);
+        Cancelar.setBounds(313, 227, 120, 23);
         contentPane.add(Cancelar);
         Cancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
