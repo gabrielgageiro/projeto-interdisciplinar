@@ -35,8 +35,8 @@ public class BancoDeDados {
     public void criarTable( ) {
         String sql1 = "CREATE TABLE IF NOT EXISTS verba(\n"+
                 "id integer PRIMARY KEY,\n" +
-                "valores real\n" +
-                "prazo integer,\n" +
+                "valores real,\n" +
+                "prazo integer\n" +
                 ");";
 
         String sql = "CREATE TABLE IF NOT EXISTS produtos(\n" +
