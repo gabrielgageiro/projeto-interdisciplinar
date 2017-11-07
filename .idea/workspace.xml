@@ -10,10 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/projeto/bancoDeDados/BancoDeDados.class" afterPath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/projeto/bancoDeDados/BancoDeDados.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/projeto-interdisciplinar/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/bancoDeDados/BancoDeDados.java" afterPath="$PROJECT_DIR$/projeto/bancoDeDados/BancoDeDados.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/escola/Main.java" afterPath="$PROJECT_DIR$/projeto/escola/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/telas/AdicionarVerba.java" afterPath="$PROJECT_DIR$/projeto/telas/AdicionarVerba.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto/telas/mostrarItem.java" afterPath="$PROJECT_DIR$/projeto/telas/mostrarItem.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +34,8 @@
       <file leaf-file-name="AdicionarVerba.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projeto/telas/AdicionarVerba.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="79" column="107" lean-forward="false" selection-start-line="79" selection-start-column="107" selection-end-line="79" selection-end-column="107" />
+            <state relative-caret-position="528">
+              <caret line="100" column="62" lean-forward="true" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -500,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509912371478</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary=" ajustes">
+      <created>1510056971602</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1510056971602</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -920,8 +923,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto/telas/AdicionarVerba.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="79" column="107" lean-forward="false" selection-start-line="79" selection-start-column="107" selection-end-line="79" selection-end-column="107" />
+        <state relative-caret-position="528">
+          <caret line="100" column="62" lean-forward="true" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
