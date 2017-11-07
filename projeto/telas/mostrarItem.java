@@ -1,5 +1,7 @@
 package projeto.telas;
 
+import projeto.bancoDeDados.BancoDeDados;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -45,8 +47,9 @@ public class mostrarItem extends JFrame {
 		
 		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
-		
-		textArea = new JTextArea();
+
+		BancoDeDados bd = new BancoDeDados();
+		textArea = new JTextArea(bd.mostrarDados());
 		textArea.setEditable(false);
 		
 		panel.add(textArea);

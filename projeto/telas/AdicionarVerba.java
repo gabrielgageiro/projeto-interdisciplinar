@@ -77,7 +77,7 @@ public class AdicionarVerba extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 BancoDeDados bd = new BancoDeDados();
-                //bd.inserirVerba(Float.parseFloat(txtVerba.getText()));
+                bd.inserirVerba(Float.parseFloat(txtVerba.getText()),Integer.parseInt(textPrazo.getText()));
             }
         });
 

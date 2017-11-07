@@ -56,6 +56,22 @@ public class BancoDeDados {
         }
     }
 
+    public int getData(){
+        String sql = "SELECT prazo FROM verba";
+        int data=0;
+        try (Connection conn = this.connect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)){
+
+            data = rs.getInt("prazo");
+
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return data;
+    }
+
+
     public String mostrarDados(){
         String sql = "SELECT id, nome,tipo, quantidade,valor FROM produtos";
         String dados="";
@@ -72,13 +88,13 @@ public class BancoDeDados {
                         rs.getString("tipo")+"\n"+
                         rs.getInt("quantidade")+ "\n"+
                         rs.getFloat("valor");
-                /*
+
                 System.out.println(rs.getInt("id") +  "\t" +
                         rs.getString("nome") + "\t" +
                         rs.getString("tipo")+"\t"+
                         rs.getInt("quantidade")+ "\t"+
                         rs.getFloat("valor"));
-*/
+
 
             }
         } catch (SQLException e) {
