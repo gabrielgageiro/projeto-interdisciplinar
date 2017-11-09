@@ -1,5 +1,7 @@
 package projeto.telas;
 
+import projeto.bancoDeDados.BancoDeDados;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -74,13 +76,17 @@ public class Login extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            if (login.getText().equals("admin") && new String(senha.getPassword()).equals("admin")) {
+            char [] chars = senha.getPassword();
+            String senha = String.valueOf(chars);
+            new BancoDeDados().validarLogin(login.getText(),senha);
+
+            /*if (login.getText().equals("admin") && new String(senha.getPassword()).equals("admin")) {
             	new TelaPrincipal();
 
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario e senha nao confere!");
-            }
+            }*/
        }
     }
 }

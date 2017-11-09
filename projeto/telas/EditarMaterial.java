@@ -25,6 +25,9 @@ public class EditarMaterial extends JFrame {
 	 * Create the frame.
 	 */
 	public EditarMaterial(TelaPrincipal tp) {
+
+	    EditarMaterial em = this;
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
                 setVisible(true);
@@ -44,7 +47,9 @@ public class EditarMaterial extends JFrame {
 		btnEditaLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new GerenciarLogins();
+				new GerenciarLogins(em);
+				setVisible(false);
+
 			}
 		});
 		

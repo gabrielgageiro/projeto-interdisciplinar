@@ -1,5 +1,7 @@
 package projeto.telas;
 
+import projeto.bancoDeDados.BancoDeDados;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -24,7 +26,7 @@ public class GerenciarLogins extends JFrame {
     /**
      * Create the frame.
      */
-    public GerenciarLogins() {
+    public GerenciarLogins(JFrame em) {
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,8 +60,27 @@ public class GerenciarLogins extends JFrame {
         });
         contentPane.add(btnCadastrar);
 
+        btnCadastrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BancoDeDados bd = new BancoDeDados();
+                bd.setUsuarios(lblLogin.getText(),lblSenha.getText());
+            }
+        });
+
+
         JButton btnCancelar = new JButton("Cancelar");
         contentPane.add(btnCancelar);
+
+        btnCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                em.setVisible(true);
+                dispose();
+            }
+        });
+
+
     }
 
 }

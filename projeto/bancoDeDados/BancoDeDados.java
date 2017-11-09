@@ -1,5 +1,7 @@
 package projeto.bancoDeDados;
 
+import projeto.telas.TelaPrincipal;
+
 import javax.swing.*;
 import java.sql.*;
 
@@ -64,6 +66,46 @@ public class BancoDeDados {
             System.out.println(e.getMessage());
         }
     }
+
+    public void setUsuarios(String login, String senha){
+        criarTable();
+
+        String sql = "INSERT INTO logins(usuario,senha) VALUES (?,?)";
+
+
+        try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
+            pstm.setString(1,login);
+            pstm.setString(2,senha);
+            pstm.executeUpdate();
+        } catch (SQLException e){
+            System.out.println(e.getStackTrace());
+        }
+
+    }
+
+    public void validarLogin(String usuario, String senha){
+
+        String sql = "SELECT usuario, senha FROM logins";
+
+        try(Connection conn = this.connect();Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)){
+
+            if(rs.getString("usuario").equals(usuario) && rs.getString(senha).equals(senha) ){
+                JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!");
+                new TelaPrincipal();
+        }else {
+                JOptionPane.showMessageDialog(null,"Login inválido.");
+            }
+
+        } catch (SQLException e ){
+            System.out.println(e.getStackTrace());
+        }
+
+    }
+
+    public void removerUsuarios(){
+        //IMPLEMENTAR
+    }
+
 
     public int getData(){
         String sql = "SELECT prazo FROM verba";
