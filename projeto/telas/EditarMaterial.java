@@ -37,9 +37,16 @@ public class EditarMaterial extends JFrame {
 		
 		JButton btnEditaSetor = new JButton("Editar Setor");
 		
-		JButton btnEditaEscola = new JButton("Editar Escola");
+		JButton btnEditaLogin = new JButton("Editar Login");
 		
 		JButton btnEditaMaterial = new JButton("Editar Materiais");
+		
+		btnEditaLogin.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new GerenciarLogins();
+			}
+		});
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.addActionListener(new ActionListener(){
@@ -67,7 +74,7 @@ public class EditarMaterial extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(19)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btnEditaEscola, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnEditaLogin, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnEditaSetor, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnEditaMaterial, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addGap(173)
@@ -85,7 +92,7 @@ public class EditarMaterial extends JFrame {
 					.addGap(18)
 					.addComponent(btnEditaSetor, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 					.addGap(31)
-					.addComponent(btnEditaEscola, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnEditaLogin, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 					.addGap(33)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 						.addComponent(btnSair, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
