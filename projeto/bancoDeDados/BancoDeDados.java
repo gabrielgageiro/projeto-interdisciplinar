@@ -33,11 +33,6 @@ public class BancoDeDados {
     }
 
     public void criarTable( ) {
-        String sql1 = "CREATE TABLE IF NOT EXISTS verba(\n"+
-                "id integer PRIMARY KEY,\n" +
-                "valores real,\n" +
-                "prazo integer\n" +
-                ");";
 
         String sql = "CREATE TABLE IF NOT EXISTS produtos(\n" +
                 "id integer PRIMARY KEY,\n" +
@@ -46,11 +41,25 @@ public class BancoDeDados {
                 "quantidade integer,\n" +
                 "valor real\n" +
                 ");";
+
+        String sql1 = "CREATE TABLE IF NOT EXISTS verba(\n"+
+                "id integer PRIMARY KEY,\n" +
+                "valores real,\n" +
+                "prazo integer\n" +
+                ");";
+
+        String sql2 = "CREATE TABLE IF NOT EXISTS logins(\n" +
+                "usuario text,\n"+
+                "senha text\n"+
+                ");";
+
         try (Connection conn = DriverManager.getConnection(URL);
              Statement stmt = conn.createStatement()) {
             // cria a nova tabela
-            stmt.execute(sql1);
             stmt.execute(sql);
+            stmt.execute(sql1);
+            stmt.execute(sql2);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

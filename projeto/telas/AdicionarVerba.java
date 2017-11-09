@@ -34,15 +34,15 @@ public class AdicionarVerba extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+
 		JLabel lbCalculaVerba = new JLabel("C\u00E1lcula Verba");
 		lbCalculaVerba.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		
+
 		JLabel lbqtdDinheiro = new JLabel("Quantidade de Dinheiro: ");
-		
+
 		txtVerba = new JTextField();
 		txtVerba.setColumns(10);
-		
+
 		JLabel lbPrazo = new JLabel("Prazo de Entrega: ");
 
 		textPrazo = new JFormattedTextField();
@@ -77,6 +77,7 @@ public class AdicionarVerba extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 BancoDeDados bd = new BancoDeDados();
+                bd.criarTable();
                 bd.inserirVerba(Float.parseFloat(txtVerba.getText()),Integer.parseInt(textPrazo.getText()));
             }
         });

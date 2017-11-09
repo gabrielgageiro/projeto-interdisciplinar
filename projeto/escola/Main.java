@@ -18,7 +18,7 @@ public class Main {
         int diaFinalPrazo = 317;//334 é dia 30/11
 
         System.out.println(new BancoDeDados().getData());
-        //JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+ (diaFinalPrazo - diaAno));
+        JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+ (diaFinalPrazo - diaAno));
 
         new TelaPrincipal();
 
