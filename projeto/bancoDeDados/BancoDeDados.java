@@ -83,23 +83,26 @@ public class BancoDeDados {
 
     }
 
-    public void validarLogin(String usuario, String senha){
+    public boolean validarLogin(String usuario, String senha){
 
         String sql = "SELECT usuario, senha FROM logins";
 
         try(Connection conn = this.connect();Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)){
 
-            if(rs.getString("usuario").equals(usuario) && rs.getString(senha).equals(senha) ){
+            return rs.getString("usuario").equals(usuario) && rs.getString("senha").equals(senha);
+/*
+            if(rs.getString("usuario").equals(usuario) && rs.getString("senha").equals(senha) ){
                 JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!");
                 new TelaPrincipal();
+
         }else {
                 JOptionPane.showMessageDialog(null,"Login inválido.");
             }
-
+*/
         } catch (SQLException e ){
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
         }
-
+        return true;
     }
 
     public void removerUsuarios(){

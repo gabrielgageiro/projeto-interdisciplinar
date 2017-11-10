@@ -53,18 +53,15 @@ public class GerenciarLogins extends JFrame {
         contentPane.add(fieldSenha);
 
         JButton btnCadastrar = new JButton("Cadastrar");
-        btnCadastrar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         contentPane.add(btnCadastrar);
 
         btnCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 BancoDeDados bd = new BancoDeDados();
-                bd.setUsuarios(lblLogin.getText(),lblSenha.getText());
+                char[] chars = fieldSenha.getPassword();
+                String password = String.valueOf(chars);
+                bd.setUsuarios(txtLogin.getText(),password);
             }
         });
 

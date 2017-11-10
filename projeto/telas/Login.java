@@ -78,15 +78,13 @@ public class Login extends JFrame {
 
             char [] chars = senha.getPassword();
             String senha = String.valueOf(chars);
-            new BancoDeDados().validarLogin(login.getText(),senha);
 
-            /*if (login.getText().equals("admin") && new String(senha.getPassword()).equals("admin")) {
-            	new TelaPrincipal();
-
+            if(new BancoDeDados().validarLogin(login.getText(),senha)){
+                new TelaPrincipal();
                 dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario e senha nao confere!");
-            }*/
-       }
+            }else
+                JOptionPane.showMessageDialog(null,"Login invalido!");
+
+        }
     }
 }
