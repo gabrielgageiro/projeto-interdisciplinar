@@ -61,7 +61,7 @@ public class GerenciarLogins extends JFrame {
                 BancoDeDados bd = new BancoDeDados();
                 char[] chars = fieldSenha.getPassword();
                 String password = String.valueOf(chars);
-                bd.setUsuarios(txtLogin.getText(),password);
+                bd.setUsuarios(txtLogin.getText(), password);
             }
         });
 

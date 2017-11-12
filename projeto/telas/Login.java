@@ -58,7 +58,7 @@ public class Login extends JFrame {
         //tamanho da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 150);
-        setVisible(true);		
+        setVisible(true);
         getRootPane().setDefaultButton(logar);
 
     }
@@ -76,14 +76,14 @@ public class Login extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            char [] chars = senha.getPassword();
+            char[] chars = senha.getPassword();
             String senha = String.valueOf(chars);
 
-            if(new BancoDeDados().validarLogin(login.getText(),senha)){
+            if (new BancoDeDados().validarLogin(login.getText(), senha)) {
                 new TelaPrincipal();
                 dispose();
-            }else
-                JOptionPane.showMessageDialog(null,"Login invalido!");
+            } else
+                JOptionPane.showMessageDialog(null, "Login invalido!");
 
         }
     }
