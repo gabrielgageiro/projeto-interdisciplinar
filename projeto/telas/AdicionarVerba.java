@@ -38,12 +38,12 @@ public class AdicionarVerba extends JFrame {
         JLabel lbCalculaVerba = new JLabel("C\u00E1lcula Verba");
         lbCalculaVerba.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 
-        JLabel lbqtdDinheiro = new JLabel("Quantidade de Dinheiro: ");
+        JLabel lbqtdDinheiro = new JLabel("Valores passado pelo governo (Em R$): ");
 
         txtVerba = new JTextField();
         txtVerba.setColumns(10);
 
-        JLabel lbPrazo = new JLabel("Prazo de Entrega: ");
+        JLabel lbPrazo = new JLabel("Dia do vencimento: ");
 
         textPrazo = new JFormattedTextField();
         try {
@@ -78,7 +78,19 @@ public class AdicionarVerba extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 BancoDeDados bd = new BancoDeDados();
                 bd.criarTable();
-                bd.inserirVerba(Float.parseFloat(txtVerba.getText()), Integer.parseInt(textPrazo.getText()));
+
+                    try{
+
+                        if (textPrazo.getText().equals("  /  /    ")){
+                            throw new NumberFormatException();
+                        }
+                        bd.inserirVerba(Float.parseFloat(txtVerba.getText()),textPrazo.getText());
+
+                    } catch (NumberFormatException e1){
+                        JOptionPane.showMessageDialog(null,"Verifique os valores!");
+                    }
+
+
             }
         });
 

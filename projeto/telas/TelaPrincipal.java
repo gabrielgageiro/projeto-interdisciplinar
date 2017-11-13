@@ -17,7 +17,7 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
-		super("Controle Principal");
+		super("Gerenciador de Finanças Escolares - GFE");
 
         TelaPrincipal tp = this;
 

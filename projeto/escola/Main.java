@@ -6,21 +6,30 @@ import projeto.telas.TelaPrincipal;
 import projeto.bancoDeDados.*;
 
 import javax.swing.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 
 public class Main {
 
-    public static void main(String[] args) {
-       /*
-        new Login();
-        Calendar calendar = Calendar.getInstance();
-        int diaAno = calendar.get(Calendar.DAY_OF_YEAR);
-        int diaFinalPrazo = 317;//334 é dia 30/11
+    public static void main(String[] args) throws ParseException {
 
-        System.out.println(new BancoDeDados().getData());
-        JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: " + (diaFinalPrazo - diaAno));
-*/
+        Calendar c = Calendar.getInstance();
+
+       // new Login();
+        SimpleDateFormat ha = new SimpleDateFormat("dd/MM/yyyy");
+
+        String t = new BancoDeDados().getData();
+        Date data = ha.parse(t);
+        c.setTime(data);
+
+        JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+
+                (c.get(Calendar.DAY_OF_YEAR) - Calendar.getInstance().get(Calendar.DAY_OF_YEAR)));
+
         new TelaPrincipal();
 
     }

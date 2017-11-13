@@ -47,8 +47,8 @@ public class BancoDeDados {
 
         String sql1 = "CREATE TABLE IF NOT EXISTS verba(\n" +
                 "id integer PRIMARY KEY,\n" +
-                "valores real,\n" +
-                "prazo integer\n" +
+                "valorVerba real,\n" +
+                "prazo text\n" +
                 ");";
 
         String sql2 = "CREATE TABLE IF NOT EXISTS logins(\n" +
@@ -79,7 +79,7 @@ public class BancoDeDados {
             pstm.setString(2, senha);
             pstm.executeUpdate();
         } catch (SQLException e) {
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
         }
 
     }
@@ -103,16 +103,14 @@ public class BancoDeDados {
         //IMPLEMENTAR
     }
 
-
-    public int getData() {
+    public String getData() {
         String sql = "SELECT prazo FROM verba";
-        int data = 0;
+        String data = "";
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
-            data = rs.getInt("prazo");
-
+            data = rs.getString("prazo");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -151,15 +149,15 @@ public class BancoDeDados {
         return dados;
     }
 
-    public void inserirVerba(float valorVerba, int prazo) {
+    public void inserirVerba(float valorVerba, String prazo) {
 
         criarTable();
 
-        String sql = "INSERT into verba(valorVverba,prazo) VALUES(?,?)";
+        String sql = "INSERT into verba(valorVerba,prazo) VALUES(?,?)";
 
         try (Connection conn = this.connect(); PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setFloat(1, valorVerba);
-            pstm.setInt(2, prazo);
+            pstm.setString(2, prazo);
             pstm.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -1,19 +1,15 @@
 package projeto.telas;
 
+import com.sun.corba.se.impl.io.TypeMismatchException;
 import projeto.bancoDeDados.BancoDeDados;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
@@ -80,14 +76,20 @@ public class AdicionarMateriais extends JFrame {
         btnCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 BancoDeDados bd = new BancoDeDados();
-                bd.inserirDados(txtTextonome.getText(), txtTipo.getText(), Integer.parseInt(txtQuantidade.getText()),
-                        Float.parseFloat(txtValor.getText()));
-                txtQuantidade.setText("");
-                txtValor.setText("");
-                txtQuantidade.setText("");
-                txtTipo.setText("");
-                txtTextonome.setText("");
-            }
+
+                try {
+                    bd.inserirDados(txtTextonome.getText(), txtTipo.getText(), Integer.parseInt(txtQuantidade.getText()),
+                            Float.parseFloat(txtValor.getText()));
+                    txtQuantidade.setText("");
+                    txtValor.setText("");
+                    txtQuantidade.setText("");
+                    txtTipo.setText("");
+                    txtTextonome.setText("");
+
+                } catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null,"Verifique os valores");
+                }
+                }
         });
         getRootPane().setDefaultButton(btnCadastrar);
 
