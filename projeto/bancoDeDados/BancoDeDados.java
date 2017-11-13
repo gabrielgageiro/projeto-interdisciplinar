@@ -103,6 +103,22 @@ public class BancoDeDados {
         //IMPLEMENTAR
     }
 
+    public String toString(){
+        String sql = "SELECT valorVerba FROM verba";
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            float v= rs.getFloat("valorVerba");
+            return String.valueOf(v);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return sql;
+    }
+
     public String getData() {
         String sql = "SELECT prazo FROM verba";
         String data = "";

@@ -34,8 +34,7 @@ public class Main {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-new RelatorioMateriais();
-        //new TelaPrincipal();
+        new TelaPrincipal();
 
     }
 }

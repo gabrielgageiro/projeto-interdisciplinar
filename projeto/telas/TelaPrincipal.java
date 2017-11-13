@@ -140,6 +140,8 @@ public class TelaPrincipal extends JFrame {
                 });
             }
         });
+		
+		JLabel lblNewLabel = new JLabel("Verba disponivel: "+ new BancoDeDados().toString());
                 
                 
                 
@@ -148,8 +150,8 @@ public class TelaPrincipal extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(LabelControlePrincipal, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE)
 							.addGap(58))
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -157,12 +159,17 @@ public class TelaPrincipal extends JFrame {
 								.addComponent(btnremoverMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnListarMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnCadastroMaterial, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btnCalcularCusto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnCalcularVerba, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-							.addContainerGap())
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(btnCalcularCusto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(btnCalcularVerba, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+									.addContainerGap())
+								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+									.addComponent(lblNewLabel)
+									.addGap(58))))
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(btnEditar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
@@ -182,8 +189,10 @@ public class TelaPrincipal extends JFrame {
 						.addComponent(btnCalcularCusto)
 						.addComponent(btnListarMaterial))
 					.addGap(18)
-					.addComponent(btnremoverMaterial)
-					.addPreferredGap(ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnremoverMaterial)
+						.addComponent(lblNewLabel))
+					.addPreferredGap(ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnSair)
 						.addComponent(btnEditar))
