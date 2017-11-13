@@ -30,7 +30,7 @@ public class RelatorioMateriais extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RelatorioMateriais(TelaPrincipal tp) {
+	public RelatorioMateriais(/*TelaPrincipal tp*/) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 400);
                 setVisible(true);
@@ -64,7 +64,7 @@ public class RelatorioMateriais extends JFrame {
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try{
-									tp.setVisible(true);
+								//	tp.setVisible(true);
 									dispose();
 
 								}catch(Exception e){

@@ -120,27 +120,19 @@ public class BancoDeDados {
 
     public String mostrarDados() {
         String sql = "SELECT id, nome,tipo, quantidade,valor FROM produtos";
-        String dados = "";
+        String dados = "ID \t NOME \t TIPO \t QUANTIDADE \t VALOR \n ";
 
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
 
              ResultSet rs = stmt.executeQuery(sql)) {
-
             //itera sobre os resultados
             while (rs.next()) {
-                dados += rs.getInt("id") + "\n" +
-                        rs.getString("nome") + "\n" +
-                        rs.getString("tipo") + "\n" +
-                        rs.getInt("quantidade") + "\n" +
-                        rs.getFloat("valor");
-
-                System.out.println(rs.getInt("id") + "\t" +
-                        rs.getString("nome") + "\t" +
-                        rs.getString("tipo") + "\t" +
-                        rs.getInt("quantidade") + "\t" +
-                        rs.getFloat("valor"));
-
+                dados += rs.getInt("id") + " \t " +
+                        rs.getString("nome") + " \t " +
+                        rs.getString("tipo") + " \t " +
+                        rs.getInt("quantidade") + " \t " +
+                        rs.getFloat("valor") + " \n ";
 
             }
         } catch (SQLException e) {

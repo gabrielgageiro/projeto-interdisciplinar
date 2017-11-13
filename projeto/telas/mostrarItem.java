@@ -38,11 +38,6 @@ public class mostrarItem extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnOk = new JButton("ok");
-		btnOk.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
 		contentPane.add(btnOk, BorderLayout.SOUTH);
 		
 		panel = new JPanel();
@@ -50,11 +45,11 @@ public class mostrarItem extends JFrame {
 
 		BancoDeDados bd = new BancoDeDados();
 		textArea = new JTextArea(bd.mostrarDados());
-		textArea.setEditable(false);
+		textArea.setEditable(true);
 		
 		panel.add(textArea);
-
-        btnOk.addActionListener(new ActionListener() {
+		System.out.println(bd.mostrarDados());
+		btnOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();tp.setVisible(true);
             }

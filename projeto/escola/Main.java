@@ -1,6 +1,7 @@
 package projeto.escola;
 
 import projeto.telas.Login;
+import projeto.telas.RelatorioMateriais;
 import projeto.telas.TelaPrincipal;
 
 import projeto.bancoDeDados.*;
@@ -33,8 +34,8 @@ public class Main {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-
-        new TelaPrincipal();
+new RelatorioMateriais();
+        //new TelaPrincipal();
 
     }
 }
