@@ -189,6 +189,25 @@ public class BancoDeDados {
         return dados;
     }
 
+    public float calc(){
+        String sql = "SELECT valor,quantidade FROM produtos";
+        String valor="";
+        float soma=0;
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+
+             ResultSet rs = stmt.executeQuery(sql)) {
+            //itera sobre os resultados
+            while (rs.next()) {
+                soma+=rs.getInt("quantidade")*rs.getFloat("valor");
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return soma;
+    }
+
     public void atualizarVerba(float valorVerba){
 
         String sql = "UPDATE verba SET valorVerba = ?";
@@ -229,7 +248,7 @@ public class BancoDeDados {
         String sql = "INSERT INTO produtos(nome,tipo,quantidade,valor) VALUES (?,?,?,?)";
 
         if (valor*qtd > getVerba()) {
-            JOptionPane.showMessageDialog(null,"Saldo insuficiente!");
+            JOptionPane.showMessageDialog(null,"Saldo insuficiente!\nVoce tem "+getVerba());
         }
         else {
             atualizarVerba(qtd*valor);

@@ -2,16 +2,12 @@ package projeto.telas;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class EditarMaterial extends JFrame {
@@ -47,7 +43,11 @@ public class EditarMaterial extends JFrame {
 		btnEditaLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new GerenciarLogins(em);
+                Object[] options = { "Cadastrar", "Remover" };
+                int o=JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar",
+                        "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+                        null, options, options[0]);
+				new GerenciarLogins(em,o);
 				setVisible(false);
 
 			}

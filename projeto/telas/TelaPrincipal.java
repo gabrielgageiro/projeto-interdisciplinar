@@ -103,7 +103,7 @@ public class TelaPrincipal extends JFrame {
             }
         });
 		
-		JButton btnCalcularVerba = new JButton("Calcular Verba");
+		JButton btnCalcularVerba = new JButton("Adicionar Verba");
 		btnCalcularVerba.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/cifrao.png")));
                  btnCalcularVerba.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -122,6 +122,12 @@ public class TelaPrincipal extends JFrame {
         });
 
 		JButton btnCalcularCusto = new JButton("Calcular Custos");
+		btnCalcularCusto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new RelatorioMateriais(tp);
+				setVisible(false);
+			}
+		});
 		btnCalcularCusto.setIcon(new ImageIcon(TelaPrincipal.class.getResource("icones/custo.png")));
 		
 		JButton btnEditar = new JButton("Editar");

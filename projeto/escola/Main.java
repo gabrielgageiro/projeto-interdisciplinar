@@ -21,7 +21,7 @@ public class Main {
 
         Calendar c = Calendar.getInstance();
 
-       // new Login();
+       new Login();
         SimpleDateFormat ha = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
@@ -34,7 +34,6 @@ public class Main {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        new TelaPrincipal();
 
     }
 }

@@ -16,12 +16,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JScrollBar;
 
 public class mostrarItem extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panel;
 	private JTextArea textArea;
+	private JScrollBar scrollBar;
 
 	
 	/**
@@ -45,9 +47,14 @@ public class mostrarItem extends JFrame {
 
 		BancoDeDados bd = new BancoDeDados();
 		textArea = new JTextArea(bd.mostrarDados());
+		textArea.setTabSize(15);
+		textArea.setRows(30);
 		textArea.setEditable(false);
 		
 		panel.add(textArea);
+		
+		scrollBar = new JScrollBar();
+		panel.add(scrollBar);
 		System.out.println(bd.mostrarDados());
 		btnOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
