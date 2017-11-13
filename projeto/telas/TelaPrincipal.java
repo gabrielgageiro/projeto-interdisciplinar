@@ -141,7 +141,7 @@ public class TelaPrincipal extends JFrame {
             }
         });
 		
-		JLabel lblNewLabel = new JLabel("Verba disponivel: "+ new BancoDeDados().toString());
+		JLabel lblNewLabel = new JLabel("Verba: "+ new BancoDeDados().verbaLabel());
                 
                 
                 

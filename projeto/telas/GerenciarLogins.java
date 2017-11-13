@@ -5,15 +5,10 @@ import projeto.bancoDeDados.BancoDeDados;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -62,6 +57,9 @@ public class GerenciarLogins extends JFrame {
                 char[] chars = fieldSenha.getPassword();
                 String password = String.valueOf(chars);
                 bd.setUsuarios(txtLogin.getText(), password);
+                JOptionPane.showMessageDialog(null,"Cadastrado!");
+                dispose();
+                em.setVisible(true);
             }
         });
 

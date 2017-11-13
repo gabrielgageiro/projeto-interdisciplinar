@@ -1,5 +1,6 @@
 package projeto.bancoDeDados;
 
+import projeto.telas.AdicionarVerba;
 import projeto.telas.TelaPrincipal;
 
 import javax.swing.*;
@@ -99,12 +100,43 @@ public class BancoDeDados {
         return true;
     }
 
-    public void removerUsuarios() {
-        //IMPLEMENTAR
+    public void removerUsuarios(String user) {
+        String sql = "DELETE FROM logins WHERE usuario = ?";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            pstmt.setString(1, user);
+            // execute the delete statement
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public String toString(){
+    public float getVerba(){
         String sql = "SELECT valorVerba FROM verba";
+
+        float verba=0;
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            float v= rs.getFloat("valorVerba");
+            return v;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return verba;
+    }
+
+    public String verbaLabel(){
+        String sql = "SELECT valorVerba FROM verba";
+        String verba="";
 
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
@@ -116,7 +148,7 @@ public class BancoDeDados {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return sql;
+        return verba;
     }
 
     public String getData() {
@@ -136,7 +168,7 @@ public class BancoDeDados {
 
     public String mostrarDados() {
         String sql = "SELECT id, nome,tipo, quantidade,valor FROM produtos";
-        String dados = "ID \t NOME \t TIPO \t QUANTIDADE \t VALOR \n ";
+        String dados = "ID  NOME \t TIPO \t QUANTIDADE \t VALOR \n ";
 
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
@@ -144,7 +176,7 @@ public class BancoDeDados {
              ResultSet rs = stmt.executeQuery(sql)) {
             //itera sobre os resultados
             while (rs.next()) {
-                dados += rs.getInt("id") + " \t " +
+                dados += rs.getInt("id") + "   " +
                         rs.getString("nome") + " \t " +
                         rs.getString("tipo") + " \t " +
                         rs.getInt("quantidade") + " \t " +
@@ -157,19 +189,37 @@ public class BancoDeDados {
         return dados;
     }
 
+    public void atualizarVerba(float valorVerba){
+
+        String sql = "UPDATE verba SET valorVerba = ?";
+
+        try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
+            pstm.setFloat(1,getVerba()-valorVerba);
+            pstm.executeUpdate();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public void inserirVerba(float valorVerba, String prazo) {
 
         criarTable();
 
-        String sql = "INSERT into verba(valorVerba,prazo) VALUES(?,?)";
+        if (getVerba() == 0){
+            String sql = "INSERT into verba(valorVerba,prazo) VALUES(?,?)";
 
-        try (Connection conn = this.connect(); PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setFloat(1, valorVerba);
-            pstm.setString(2, prazo);
-            pstm.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            try (Connection conn = this.connect(); PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setFloat(1, valorVerba);
+                pstm.setString(2, prazo);
+                pstm.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }else {
+            atualizarVerba(valorVerba);
         }
+
     }
 
 
@@ -178,14 +228,21 @@ public class BancoDeDados {
 
         String sql = "INSERT INTO produtos(nome,tipo,quantidade,valor) VALUES (?,?,?,?)";
 
-        try (Connection conn = this.connect(); PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, nome);
-            pstm.setString(2, tipo);
-            pstm.setInt(3, qtd);
-            pstm.setFloat(4, valor);
-            pstm.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        if (valor*qtd > getVerba()) {
+            JOptionPane.showMessageDialog(null,"Saldo insuficiente!");
+        }
+        else {
+            atualizarVerba(qtd*valor);
+
+            try (Connection conn = this.connect(); PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, nome);
+                pstm.setString(2, tipo);
+                pstm.setInt(3, qtd);
+                pstm.setFloat(4, valor);
+                pstm.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 

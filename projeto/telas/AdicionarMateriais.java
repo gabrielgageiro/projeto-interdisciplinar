@@ -66,7 +66,7 @@ public class AdicionarMateriais extends JFrame {
         telaMateriais.add(lblValor);
 
         txtValor = new JTextField();
-        txtValor.setToolTipText("insira o valor");
+        txtValor.setToolTipText("insira o valor unitario");
         telaMateriais.add(txtValor);
         txtValor.setColumns(10);
 

@@ -37,9 +37,9 @@ public class EditarMaterial extends JFrame {
 		
 		JLabel lbEditaMaterial = new JLabel("Editor");
 		lbEditaMaterial.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		
+
 		JButton btnEditaSetor = new JButton("Editar Setor");
-		
+
 		JButton btnEditaLogin = new JButton("Editar Login");
 		
 		JButton btnEditaMaterial = new JButton("Editar Materiais");

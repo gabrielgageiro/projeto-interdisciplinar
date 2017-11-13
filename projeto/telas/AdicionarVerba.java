@@ -11,6 +11,7 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.text.MaskFormatter;
 
@@ -38,7 +39,7 @@ public class AdicionarVerba extends JFrame {
         JLabel lbCalculaVerba = new JLabel("C\u00E1lcula Verba");
         lbCalculaVerba.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 
-        JLabel lbqtdDinheiro = new JLabel("Valores passado pelo governo (Em R$): ");
+        JLabel lbqtdDinheiro = new JLabel("Valor em reais : ");
 
         txtVerba = new JTextField();
         txtVerba.setColumns(10);
@@ -84,9 +85,12 @@ public class AdicionarVerba extends JFrame {
                         if (textPrazo.getText().equals("  /  /    ")){
                             throw new NumberFormatException();
                         }
-                        bd.inserirVerba(Float.parseFloat(txtVerba.getText()),textPrazo.getText());
+                        BigDecimal v = new BigDecimal(txtVerba.getText());
+
+                        bd.inserirVerba(v.floatValue(),textPrazo.getText());
 
                         JOptionPane.showMessageDialog(null,"Adicionado!");
+                        tp.setVisible(true);
                         dispose();
 
                     } catch (NumberFormatException e1){

@@ -29,7 +29,7 @@ public class Main {
             Date data = ha.parse(t);
             c.setTime(data);
 
-            JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+
+            JOptionPane.showMessageDialog(null, "Dias para a devolução de dinheiro: "+
                     (c.get(Calendar.DAY_OF_YEAR) - Calendar.getInstance().get(Calendar.DAY_OF_YEAR)));
         } catch (Exception e){
             System.out.println(e.getMessage());

@@ -45,7 +45,7 @@ public class mostrarItem extends JFrame {
 
 		BancoDeDados bd = new BancoDeDados();
 		textArea = new JTextArea(bd.mostrarDados());
-		textArea.setEditable(true);
+		textArea.setEditable(false);
 		
 		panel.add(textArea);
 		System.out.println(bd.mostrarDados());
