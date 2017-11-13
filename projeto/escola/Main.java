@@ -23,12 +23,16 @@ public class Main {
        // new Login();
         SimpleDateFormat ha = new SimpleDateFormat("dd/MM/yyyy");
 
-        String t = new BancoDeDados().getData();
-        Date data = ha.parse(t);
-        c.setTime(data);
+        try {
+            String t = new BancoDeDados().getData();
+            Date data = ha.parse(t);
+            c.setTime(data);
 
-        JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+
-                (c.get(Calendar.DAY_OF_YEAR) - Calendar.getInstance().get(Calendar.DAY_OF_YEAR)));
+            JOptionPane.showMessageDialog(null, "Dias para o fim do prazo: "+
+                    (c.get(Calendar.DAY_OF_YEAR) - Calendar.getInstance().get(Calendar.DAY_OF_YEAR)));
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
         new TelaPrincipal();
 

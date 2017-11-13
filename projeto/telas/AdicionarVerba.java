@@ -86,6 +86,9 @@ public class AdicionarVerba extends JFrame {
                         }
                         bd.inserirVerba(Float.parseFloat(txtVerba.getText()),textPrazo.getText());
 
+                        JOptionPane.showMessageDialog(null,"Adicionado!");
+                        dispose();
+
                     } catch (NumberFormatException e1){
                         JOptionPane.showMessageDialog(null,"Verifique os valores!");
                     }
