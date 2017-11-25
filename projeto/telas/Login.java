@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import static java.lang.System.exit;
 
@@ -80,8 +83,23 @@ public class Login extends JFrame {
             String senha = String.valueOf(chars);
 
             if (new BancoDeDados().validarLogin(login.getText(), senha)) {
-                new TelaPrincipal();
                 dispose();
+
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat ha = new SimpleDateFormat("dd/MM/yyyy");
+
+                try {
+                    String t = new BancoDeDados().getData();
+                    Date data = ha.parse(t);
+                    c.setTime(data);
+
+                    JOptionPane.showMessageDialog(null, "Dias para a devolução de dinheiro: "+
+                            (c.get(Calendar.DAY_OF_YEAR) - Calendar.getInstance().get(Calendar.DAY_OF_YEAR)));
+                } catch (Exception e3){
+                    System.out.println(e3.getMessage());
+                }
+
+                new TelaPrincipal();
             } else
                 JOptionPane.showMessageDialog(null, "Login invalido!");
 
