@@ -79,13 +79,16 @@ public class AdicionarVerba extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 BancoDeDados bd = new BancoDeDados();
                 bd.criarTable();
+                BigDecimal v = new BigDecimal(txtVerba.getText());
 
                     try{
 
                         if (textPrazo.getText().equals("  /  /    ")){
                             throw new NumberFormatException();
                         }
-                        BigDecimal v = new BigDecimal(txtVerba.getText());
+                        if (v.floatValue()<1.00){
+                            throw new NumberFormatException();
+                        }
 
                         bd.inserirVerba(v.floatValue(),textPrazo.getText());
 
