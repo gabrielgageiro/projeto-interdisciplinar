@@ -208,16 +208,28 @@ public class BancoDeDados {
         return soma;
     }
 
-    public void atualizarVerba(float valorVerba){
+    public void atualizarVerba(float valorVerba,int cod){
 
         String sql = "UPDATE verba SET valorVerba = ?";
 
-        try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
-            pstm.setFloat(1,getVerba()-valorVerba);
-            pstm.executeUpdate();
-        } catch (SQLException e){
-            System.out.println(e.getMessage());
+        if (cod != 1) {
+            try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
+                pstm.setFloat(1,getVerba()-valorVerba);
+                pstm.executeUpdate();
+            } catch (SQLException e){
+                System.out.println(e.getMessage());
+
+            }
+        }else {
+            try (Connection conn = this.connect();PreparedStatement pstm = conn.prepareStatement(sql)){
+                pstm.setFloat(1,getVerba()+valorVerba);
+                pstm.executeUpdate();
+            } catch (SQLException e){
+                System.out.println(e.getMessage());
+
+            }
         }
+
     }
 
 
@@ -236,7 +248,7 @@ public class BancoDeDados {
                 System.out.println(e.getMessage());
             }
         }else {
-            atualizarVerba(valorVerba);
+            atualizarVerba(valorVerba,1);
         }
 
     }
@@ -251,7 +263,7 @@ public class BancoDeDados {
             JOptionPane.showMessageDialog(null,"Saldo insuficiente!\nVoce tem "+getVerba());
         }
         else {
-            atualizarVerba(qtd*valor);
+            atualizarVerba(qtd*valor,0);
 
             try (Connection conn = this.connect(); PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, nome);
